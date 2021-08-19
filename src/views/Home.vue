@@ -1,34 +1,29 @@
 <template>
   <div class="home">
     <div class="header">
-      <!-- <router-link to="/">
-        <img alt="Vue logo" src="../assets/wave.svg" class="logo">
-      </router-link> -->
       <router-link class="link" to="/">Callis Ezenwaka</router-link>
-      <!-- <router-link class="link" to="/about">About Me</router-link> -->
     </div>
-    <div class="about--wrapper">
-      <h1>Hi, I'm Callis 👋🏾</h1>
+    <div class="about">
+      <div class="about--wrapper">
+        <h1>Hi, I'm Callis 👋🏾</h1>
 
-      <p>Glad that you came around. I am a Software Engineer 👨🏿‍💻 turned Program Manager, I still write codes anyway.</p>
+        <p>Glad that you came around. I am a Software Engineer 👨🏿‍💻 turned Program Manager, I still write codes anyway.</p>
 
-      <p>I also research on Privacy for Emerging Technology and Enterprise Cloud Applications.</p>
+        <p>I also research on Privacy for Emerging Technology and Enterprise Cloud Applications.</p>
 
-      <p>My <a href="https://codepen.io/callezenwaka">Codepen</a> page has awesome demos.</p>
+        <p>My <a href="https://codepen.io/callezenwaka">Codepen</a> page has awesome demos.</p>
 
-      <p>My personal projects are centered around giving back to the community.</p>
+        <p>My personal projects are centered around giving back to the community.</p>
 
-      <p>You can check them out below:</p>
+        <p>You can check them out below:</p>
 
-      <p><a href="https://www.algoboard.com">Algoboard</a> - An EdTech platform that supported schools during the COVID-19 lockdown. I am currently pivoting the platform.</p>
+        <p><a href="https://www.algoboard.com">Algoboard</a> - An EdTech platform that supported schools during the COVID-19 lockdown. I am currently pivoting the platform.</p>
 
-      <p><a href="https://www.algoforms.com">Algoforms</a> - An low code platform for organization that collect data in remote regions. It is an offline first application with background sync embedded.</p>
+        <p><a href="https://www.algoforms.com">Algoforms</a> - An low code platform for organization that collect data in remote regions. It is an offline first application with background sync embedded.</p>
 
-      <p>Want more? Visit <a href="https://www.callisezenwaka.com">callisezenwaka.com</a> or send an email to <a href="mailto:callisezenwaka@outlook.com">callisezenwaka@outlook.com</a></p>
+        <p>Want more? Visit <a href="https://www.callisezenwaka.com">callisezenwaka.com</a> or send an email to <a href="mailto:callisezenwaka@outlook.com">callisezenwaka@outlook.com</a></p>
+      </div>
     </div>
-    <!-- <div class="page--header">
-      <p>Check out my past projects</p>
-    </div> -->
     <Project :projects="project1"></Project>
     <Project :projects="project2"></Project>
     <Project :projects="project3"></Project>
@@ -150,7 +145,7 @@ export default {
         ],
       },
       project3: {
-        url: "https://dev.d2j6j4pgiubh78.amplifyapp.com/",
+        url: "https://genesequence-f6558.web.app/",
         name: "Gene Sequence Package",
         description:
           "Genesequence package is a light-weight bioinformatics python library.",
@@ -231,14 +226,16 @@ body {
   padding: 0% 0.5rem;
   margin: 0%;
 }
-.about--wrapper {
-  text-align: left;
-  padding: 2rem 1rem;
-  color: #ffffff;
+.about {
   background-color: #000000;
   background-image: url(https://storage.googleapis.com/motionstreak.appspot.com/network_nodes.png);
   background-position: bottom right;
   background-repeat: repeat;
+}
+.about--wrapper {
+  text-align: left;
+  padding: 2rem 1rem;
+  color: #ffffff;
 }
 
 /* wave */
