@@ -11,7 +11,7 @@
 
         <p>I also research on Privacy for Emerging Technology and Enterprise Cloud Applications.</p>
 
-        <p>My <a href="https://codepen.io/callezenwaka">Codepen</a> page has awesome demos.</p>
+        <p>My <a href="https://codepen.io/callezenwaka">Codepen</a> page has awesome demos. So are other demos on <a href="https://github.com/callezenwaka">github</a></p>
 
         <p>My personal projects are centered around giving back to the community.</p>
 
