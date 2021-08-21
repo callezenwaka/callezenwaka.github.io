@@ -4,9 +4,9 @@ Glad that you came around. I am a fullstack software engineer 👨🏿‍💻 tu
 
 I also research on Privacy for Emerging Technology and Enterprise Cloud Applications.
 
-My <a href="https://codepen.io/callezenwaka">Codepen</a> page has awesome demos.
+My <a href="https://codepen.io/callezenwaka">Codepen</a> page has awesome demos. So are other demos on <a href="https://github.com/callezenwaka">github</a>.
 
-My personal projects (<a href="https://github.com/callezenwaka">github</a>) are centered around giving back to the community.
+My personal projects are centered around giving back to the community.
 
 You can check them out below:
 
