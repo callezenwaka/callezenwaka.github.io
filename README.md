@@ -6,7 +6,7 @@ I also research on Privacy for Emerging Technology and Enterprise Cloud Applicat
 
 My <a href="https://codepen.io/callezenwaka">Codepen</a> page has awesome demos.
 
-My personal projects are centered around giving back to the community.
+My personal <a href="https://github.com/callezenwaka">projects</a> are centered around giving back to the community.
 
 You can check them out below:
 
