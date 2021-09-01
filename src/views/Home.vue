@@ -7,15 +7,17 @@
       <div class="about--wrapper">
         <h1>Hi, I'm Callis 👋🏾</h1>
 
-        <p>Glad that you came around. I am a Software Engineer 👨🏿‍💻 turned Program Manager, I still write codes anyway.</p>
+        <p>Glad that you came around. I am a Software Engineer 👨🏿‍💻.</p>
 
-        <p>I also research on Privacy for Emerging Technology and Enterprise Cloud Applications.</p>
+        <p>I have 6+ years of experience writing codes. My tech stack is majorly on JavaScript including Node.js, Vue.js, TypeScript, and recently React.js</p>
+
+        <p>I have practical experience with, GraphQL, databases (sql & noSql) and cloud platforms (AWS, GCP, Azure)</p>
+
+        <p>I am passionate about delivering products and services that are scalable, affordable, reliable and user friendly.</p>
 
         <p>My <a href="https://codepen.io/callezenwaka">Codepen</a> page has awesome demos. So are other demos on <a href="https://github.com/callezenwaka">github</a></p>
 
-        <p>My personal projects are centered around giving back to the community.</p>
-
-        <p>You can check them out below:</p>
+        <p>Some of my projects are below:</p>
 
         <p><a href="https://www.algoboard.com">Algoboard</a> - An EdTech platform that supported schools during the COVID-19 lockdown. I am currently pivoting the platform.</p>
 
