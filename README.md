@@ -1,14 +1,12 @@
 ### Hi, I'm Callis 👋🏾
 
-Glad that you came around. I am a fullstack software engineer 👨🏿‍💻 turned Program Manager, I still write codes anyway.
+Glad that you came around. I am a software engineer 👨🏿‍💻.
 
 I also research on Privacy for Emerging Technology and Enterprise Cloud Applications.
 
 My <a href="https://codepen.io/callezenwaka">Codepen</a> page has awesome demos. So are other demos on <a href="https://github.com/callezenwaka">github</a>.
 
-My personal projects are centered around giving back to the community.
-
-You can check them out below:
+My personal projects are listed below:
 
 <a href="https://www.algoboard.com">Algoboard</a> - An EdTech platform that supported schools during the COVID-19 lockdown. I am currently pivoting the platform.
 
