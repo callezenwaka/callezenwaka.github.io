@@ -1,15 +1,29 @@
-### Hi, I'm Callis 👋🏾
+# callezenwaka
 
-Glad that you came around. I am a software engineer 👨🏿‍💻.
+## Project setup
+```
+npm install
+```
 
-I also research on Privacy for Emerging Technology and Enterprise Cloud Applications.
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
-My <a href="https://codepen.io/callezenwaka">Codepen</a> page has awesome demos. So are other demos on <a href="https://github.com/callezenwaka">github</a>.
+### Compiles and minifies for production
+```
+npm run build
+```
 
-My personal projects are listed below:
+### Run your unit tests
+```
+npm run test:unit
+```
 
-<a href="https://www.algoboard.com">Algoboard</a> - An EdTech platform that supported schools during the COVID-19 lockdown. I am currently pivoting the platform.
+### Lints and fixes files
+```
+npm run lint
+```
 
-<a href="https://www.algoforms.com">Algoforms</a> - An low code platform for organization that collect data in remote regions. It is an offline first application with background sync embedded.
-
-Want to learn more about me? Check out my website <a href="https://www.callisezenwaka.com">callisezenwaka.com</a>.
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).

@@ -230,7 +230,7 @@ body {
 }
 .about {
   background-color: #000000;
-  /* background-image: url(https://storage.googleapis.com/motionstreak.appspot.com/network_nodes.png); */
+  background-image: url(https://storage.googleapis.com/barewave-464b5.appspot.com/barewave/network_nodes.png);
   background-position: bottom right;
   background-repeat: repeat;
 }
