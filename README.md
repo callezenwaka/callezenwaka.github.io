@@ -8,7 +8,7 @@ I research on Compliance, privacy and ethics for AI with Openmined.org.
 
 My <a href="https://codepen.io/callezenwaka">Codepen</a> page has awesome demos. So are other demos on <a href="https://github.com/callezenwaka">github</a>.
 
-I founded and carry out IT consult through <a href="https://www.barewave.com">Barewave.com</a>
+I founded and carry out IT consultancy through <a href="https://www.barewave.com">Barewave.com</a>
 
 My personal projects are listed below:
 
