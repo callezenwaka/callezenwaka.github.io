@@ -1,6 +1,6 @@
 ### Hi, I'm Callis 👋🏾
 
-Glad that you came around. I am a Cloud engineer 👨🏿‍💻.
+Glad that you came around. I am a PM on Cloud Applications 👨🏿‍💻.
 
 I am excited about the use of Emerging Technology and Enterprise Cloud Applications to solve real life problems.
 
