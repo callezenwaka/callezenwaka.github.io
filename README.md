@@ -1,6 +1,6 @@
 ### Hi, I'm Callis 👋🏾
 
-Glad that you came around. I am a PM on Cloud Platforms & Applications 👨🏿‍💻 ☁️.
+Glad that you came around. I am a PM on Enterprise Cloud Applications, Data Privacy & Emerging Technologies 👨🏿‍💻 ☁️.
 
 I am excited about the use of Emerging Technology and Enterprise Cloud Applications to solve real life problems.
 
