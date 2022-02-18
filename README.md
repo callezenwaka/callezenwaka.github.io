@@ -6,16 +6,12 @@ I am excited about the use of Emerging Technology and Enterprise Cloud Applicati
 
 I research on Compliance, privacy and ethics for AI with Openmined.org.
 
-My <a href="https://codepen.io/callezenwaka">Codepen</a> page has awesome demos. So are other demos on <a href="https://github.com/callezenwaka">github</a>.
+My [Codepen](https://codepen.io/callezenwaka) page has awesome demos. So are other demos on [GitHub](https://github.com/callezenwaka).
 
 I founded and carry out IT consultancy through <a href="https://www.barewave.com">Barewave.com</a>
 
 My personal projects are listed below:
+- [Algoboard](https://www.algoboard.com) - An EdTech platform that supported schools during the COVID-19 lockdown. I am currently pivoting the platform.
+- [Algoforms](https://www.algoforms.com) - An low code platform for organization that collect data in remote regions. It is an offline first application with background sync embedded.
 
-[Algoboard](https://www.algoboard.com) - An EdTech platform that supported schools during the COVID-19 lockdown. I am currently pivoting the platform.
-
-<a href="https://www.algoboard.com">Algoboard</a> - An EdTech platform that supported schools during the COVID-19 lockdown. I am currently pivoting the platform.
-
-<a href="https://www.algoforms.com">Algoforms</a> - An low code platform for organization that collect data in remote regions. It is an offline first application with background sync embedded.
-
-Want to learn more about me? Check out my website <a href="https://www.callisezenwaka.com">callisezenwaka.com</a>.
+Want to learn more about me? Check out my website [callisezenwaka](https://www.callisezenwaka.com).
