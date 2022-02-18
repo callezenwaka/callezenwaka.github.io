@@ -4,7 +4,9 @@ Glad that you came around. I am a PM on Enterprise Cloud Applications, Data Priv
 
 I am excited about the use of Emerging Technology and Enterprise Cloud Applications to solve real life problems.
 
-I research on Compliance, privacy and ethics for AI with Openmined.org.
+I research on Compliance, privacy and ethics for AI with Openmined.org where I have authored articles including:
+- [Classifying the challenges of privacy enhancing technologies (pets) in IoT data markets.](https://blog.openmined.org/classifying-the-challenges-of-privacy-enhancing-technologies-pets-in-iot-data-markets/)
+- [Understanding the role of privacy enhancing technologies (pets) in the IoT data market.](https://blog.openmined.org/understanding-the-role-of-privacy-enhancing-technologies-pets-in-the-iot-data-market/)
 
 My [Codepen](https://codepen.io/callezenwaka) page has awesome demos. So are other demos on [GitHub](https://github.com/callezenwaka).
 
