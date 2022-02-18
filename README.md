@@ -12,6 +12,8 @@ I founded and carry out IT consultancy through <a href="https://www.barewave.com
 
 My personal projects are listed below:
 
+[Algoboard](https://www.algoboard.com) - An EdTech platform that supported schools during the COVID-19 lockdown. I am currently pivoting the platform.
+
 <a href="https://www.algoboard.com">Algoboard</a> - An EdTech platform that supported schools during the COVID-19 lockdown. I am currently pivoting the platform.
 
 <a href="https://www.algoforms.com">Algoforms</a> - An low code platform for organization that collect data in remote regions. It is an offline first application with background sync embedded.
