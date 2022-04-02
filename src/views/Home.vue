@@ -217,46 +217,34 @@ export default {
           },
           {
             id: 4,
-            url: "https://storage.googleapis.com/barewave-464b5.appspot.com/nft/Mint%20page.png",
-            name: "Mint Page",
-            focus: false,
-          },
-          {
-            id: 5,
             url: "https://storage.googleapis.com/barewave-464b5.appspot.com/nft/User325%20asset.png",
             name: "User1 Asset",
             focus: false,
           },
           {
-            id: 6,
+            id: 5,
             url: "https://storage.googleapis.com/barewave-464b5.appspot.com/nft/User325%20sales.png",
             name: "User1 Sales",
             focus: false,
           },
           {
-            id: 7,
+            id: 6,
             url: "https://storage.googleapis.com/barewave-464b5.appspot.com/nft/User48f%20assets.png",
             name: "User2 Assets",
             focus: false,
           },
           {
-            id: 8,
+            id: 7,
             url: "https://storage.googleapis.com/barewave-464b5.appspot.com/nft/User48f%20nft.png",
             name: "User2 NFT",
             focus: false,
           },
           {
-            id: 9,
+            id: 8,
             url: "https://storage.googleapis.com/barewave-464b5.appspot.com/nft/mobile%20view1.png",
             name: "Mobile View1",
             focus: false,
-          },
-          {
-            id: 10,
-            url: "https://storage.googleapis.com/barewave-464b5.appspot.com/nft/mobile%20view2.png",
-            name: "Mobile View2",
-            focus: false,
-          },
+          }
         ],
       },
     };
