@@ -7,7 +7,7 @@
       <div class="about--wrapper">
         <h1>Hi, I'm Callis 👋🏾</h1>
 
-        <p>Glad that you came around. I am a Software Engineer 👨🏿‍💻.</p>
+        <p>Glad that you came around. I am a Senior Software Engineer 👨🏿‍💻.</p>
 
         <p>I have 6+ years of experience writing codes. My tech stack is majorly on JavaScript including Node.js, Vue.js, TypeScript, and recently React.js</p>
 
@@ -23,12 +23,13 @@
 
         <p><a href="https://www.algoforms.com">Algoforms</a> - An low code platform for organization that collect data in remote regions. It is an offline first application with background sync embedded.</p>
 
-        <p>Want more? Visit <a href="https://www.callisezenwaka.com">callisezenwaka.com</a> or send an email to <a href="mailto:callisezenwaka@outlook.com">callisezenwaka@outlook.com</a></p>
+        <p>Want more? Visit <a href="https://www.callisezenwaka.com">callisezenwaka.com</a> or send an email to <a href="mailto:callisezenwaka@outlook.com">callisezenwaka@outlook.com</a> | <a href="mailto:callisezenwaka@barewave.com">callisezenwaka@barewave.com</a></p>
       </div>
     </div>
     <Project :projects="project1"></Project>
     <Project :projects="project2"></Project>
     <Project :projects="project3"></Project>
+    <Project :projects="project4"></Project>
     <div class="wave">
       <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
         <defs>
@@ -147,7 +148,7 @@ export default {
         ],
       },
       project3: {
-        url: "https://genesequence-f6558.web.app/",
+        url: "https://genomestream.web.app/",
         name: "Gene Sequence Package",
         description:
           "Genesequence package is a light-weight bioinformatics python library.",
@@ -186,6 +187,80 @@ export default {
             id: 6,
             url: "https://storage.googleapis.com/barewave-464b5.appspot.com/genesequence/subscribe.PNG",
             name: "Subscription",
+            focus: false,
+          },
+        ],
+      },
+      project4: {
+        url: "https://fullstack-nft.netlify.app/",
+        name: "NFT Marketplace",
+        description:
+          "NFT marketplace is a platform for trading NFT.",
+        images: [
+          {
+            id: 1,
+            url: "https://storage.googleapis.com/barewave-464b5.appspot.com/nft/Home%20page.png",
+            name: "Home",
+            focus: true,
+          },
+          {
+            id: 2,
+            url: "https://storage.googleapis.com/barewave-464b5.appspot.com/nft/Login%20page.png",
+            name: "Login",
+            focus: false,
+          },
+          {
+            id: 3,
+            url: "https://storage.googleapis.com/barewave-464b5.appspot.com/nft/Logout%20dropdown.png",
+            name: "Logout Dropdown",
+            focus: false,
+          },
+          {
+            id: 4,
+            url: "https://storage.googleapis.com/barewave-464b5.appspot.com/nft/Mint%20page.png",
+            name: "Mint Page",
+            focus: false,
+          },
+          {
+            id: 5,
+            url: "https://storage.googleapis.com/barewave-464b5.appspot.com/nft/User325%20asset.png",
+            name: "User1 Asset",
+            focus: false,
+          },
+          {
+            id: 6,
+            url: "https://storage.googleapis.com/barewave-464b5.appspot.com/nft/User325%20asset.png",
+            name: "User1 NFT",
+            focus: false,
+          },
+          {
+            id: 7,
+            url: "https://storage.googleapis.com/barewave-464b5.appspot.com/nft/User325%20sales.png",
+            name: "User1 Sales",
+            focus: false,
+          },
+          {
+            id: 8,
+            url: "https://storage.googleapis.com/barewave-464b5.appspot.com/nft/User48f%20assets.png",
+            name: "User2 Assets",
+            focus: false,
+          },
+          {
+            id: 9,
+            url: "https://storage.googleapis.com/barewave-464b5.appspot.com/nft/User48f%20nft.png",
+            name: "User2 NFT",
+            focus: false,
+          },
+          {
+            id: 10,
+            url: "https://storage.googleapis.com/barewave-464b5.appspot.com/nft/mobile%20view1.png",
+            name: "Mobile View1",
+            focus: false,
+          },
+          {
+            id: 11,
+            url: "https://storage.googleapis.com/barewave-464b5.appspot.com/nft/mobile%20view2.png",
+            name: "Mobile View2",
             focus: false,
           },
         ],
