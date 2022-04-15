@@ -9,9 +9,9 @@
 
         <p>Glad that you came around. I am a Senior Software Engineer 👨🏿‍💻.</p>
 
-        <p>I have 6+ years of experience writing codes. My tech stack is majorly on JavaScript including Node.js, Vue.js, TypeScript, and recently React.js</p>
+        <p>I have 6+ years of experience writing codes. My tech stack is majorly on JavaScript including Node.js, Vue.js, TypeScript, and React.js</p>
 
-        <p>I have practical experience with, GraphQL, databases (sql & noSql) and cloud platforms (AWS, GCP, Azure)</p>
+        <p>I have practical experience with, RESTful APIs and GraphQL integrations, databases (sql & noSql) and cloud platforms (AWS, GCP, Azure)</p>
 
         <p>I am passionate about delivering products and services that are scalable, affordable, reliable and user friendly.</p>
 
