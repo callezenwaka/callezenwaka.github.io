@@ -30,6 +30,7 @@
     <Project :projects="project2"></Project>
     <Project :projects="project3"></Project>
     <Project :projects="project4"></Project>
+    <Project :projects="project5"></Project>
     <div class="wave">
       <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
         <defs>
@@ -245,6 +246,68 @@ export default {
             name: "Mobile View1",
             focus: false,
           }
+        ],
+      },
+      project5: {
+        url: "https://onevault.web.app/",
+        name: "Onevault",
+        description:
+          "Onevault is a web3-based blockchain file sharing platform.",
+        images: [
+          {
+            id: 1,
+            url: "https://storage.googleapis.com/barewave-464b5.appspot.com/onevault/Home%20Page.png",
+            name: "Home Page",
+            focus: false,
+          },
+          {
+            id: 2,
+            url: "https://storage.googleapis.com/barewave-464b5.appspot.com/onevault/Admin%20Document%20Page.png",
+            name: "Admin Document Page",
+            focus: true,
+          },
+          {
+            id: 3,
+            url: "https://storage.googleapis.com/barewave-464b5.appspot.com/onevault/Fetch%20Account%20Page.png",
+            name: "Fetch Account Page",
+            focus: false,
+          },
+          {
+            id: 4,
+            url: "https://storage.googleapis.com/barewave-464b5.appspot.com/onevault/Profile%20Page.png",
+            name: "Profile Page",
+            focus: false,
+          },
+          {
+            id: 5,
+            url: "https://storage.googleapis.com/barewave-464b5.appspot.com/onevault/Tenant%20Document%20Page.png",
+            name: "Tenant Document Page",
+            focus: false,
+          },
+          {
+            id: 6,
+            url: "https://storage.googleapis.com/barewave-464b5.appspot.com/onevault/Tenant%20Service%20Page.png",
+            name: "Tenant Service Page",
+            focus: false,
+          },
+          {
+            id: 7,
+            url: "https://storage.googleapis.com/barewave-464b5.appspot.com/onevault/Mobile%20Home%20Page.png",
+            name: "Mobile Home Page",
+            focus: false,
+          },
+          {
+            id: 8,
+            url: "https://storage.googleapis.com/barewave-464b5.appspot.com/onevault/Mobile%20Document%20View.png",
+            name: "Mobile Document View",
+            focus: false,
+          },
+          {
+            id: 9,
+            url: "https://storage.googleapis.com/barewave-464b5.appspot.com/onevault/Mobile%20Responsive%20Side%20Menu.png",
+            name: "Mobile Responsive Side Menu",
+            focus: false,
+          },
         ],
       },
     };
