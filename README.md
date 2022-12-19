@@ -1,8 +1,8 @@
 ### Hi, I'm Callis 👋🏾
 
-Glad that you came around. My work interface at the intersection of Enterprise Cloud Applications, Data Privacy & Emerging Technologies 👨🏿‍💻 ☁️.
+Glad to have you around. My work interfaces at the intersection of Enterprise Cloud Applications, Data Privacy & Emerging Technologies.
 
-I am excited about the use of Emerging Technology and Enterprise Cloud Applications to solve real life problems.
+I solve real life problems using Emerging Technology and Enterprise Cloud Applications.
 
 I research on Compliance, privacy and ethics for AI with Openmined.org where I have authored articles including:
 - [Classifying the challenges of privacy enhancing technologies (pets) in IoT data markets.](https://blog.openmined.org/classifying-the-challenges-of-privacy-enhancing-technologies-pets-in-iot-data-markets/)
