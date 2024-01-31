@@ -1,0 +1,20 @@
+/* :root {
+  --background-color: #1a1a1a;
+  --text-color: #f2f2f2;
+} */
+:root {
+  --background-color-primary: #ebebeb;
+  --background-color-secondary: #fafafa;
+  --accent-color: #cacaca;
+  --text-primary-color: #222;
+  --element-size: 4rem;
+}
+html, body {
+  background-color: var(--background-color-primary);
+  color: var(--text-primary-color);
+}
+
+.theme--svg {
+  width: 1rem;
+  fill: var(--text-primary-color);
+}
