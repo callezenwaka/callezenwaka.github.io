@@ -56,7 +56,7 @@ const breadcrumbs = computed(() => {
   /* background-color: var(--background-color-tertiary); */
   /* background-color: var(--background-color-secondary); */
   border-bottom: solid var(--background-color-primary);
-  color: var(--text-primary-color);
+  color: var(--text-color-primary);
   /* justify-content: space-around; */
 }
 .breadcrumb--items {
@@ -87,6 +87,6 @@ const breadcrumbs = computed(() => {
   font-size: inherit;
   background-color: var(--background-color-secondary);
   background-color: transparent;
-  color: var(--text-primary-color);
+  color: var(--text-color-primary);
 }
 </style>

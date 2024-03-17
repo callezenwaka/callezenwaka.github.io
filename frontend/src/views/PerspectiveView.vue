@@ -96,7 +96,7 @@ const updateTransforms = () => {
   transform: translateY(0); /* Initial position */
   transition: transform 0.3s ease-in-out; /* Smoother transitions */
   background-color: var(--background-color-primary);
-  color: var(--text-primary-color);
+  color: var(--text-color-primary);
   border-radius: 20px;
   box-shadow: 0 0 80px rgba(255, 255, 255, 0.3);
 }

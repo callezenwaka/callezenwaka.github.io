@@ -159,7 +159,7 @@ const handleSubscription = async () => {
 	position: absolute;
 	top: 14px;
 	left: -12px;
-	color: #fff;
+	color: var(--text-color-primary);
 	width: 20px;
 	height: 20px;
 	border-radius: 100%;
@@ -194,8 +194,8 @@ const handleSubscription = async () => {
 }
 
 .subscribe--input {
-	background-color: var(--background-color-tertiary);
-	color: var(--text-primary-color);
+	background-color: var(--input-background-color-primary);
+	color: var(--text-color-primary);
 	border: solid;
 	padding: 0.5rem 1rem;
 	font-size: inherit;
@@ -210,10 +210,10 @@ const handleSubscription = async () => {
 }
 
 .subscribe--button {
-	background-color: var(--button-primary-color);
-	color: var(--text-primary-color);
+	background-color: var(--button-background-color-primary);
+	color: var(--button-text-color-primary);
 	border: none;
-	border: 0.1rem solid var(--text-primary-color);
+	border: 0.1rem solid var(--button-text-color-primary);
 	border-radius: 0.5rem;
 	text-align: center;
 	font-size: inherit;
@@ -231,13 +231,13 @@ const handleSubscription = async () => {
 
 @media only screen and (min-width: 480px) {
 	.name {
-		width: 75%;
+		width: auto;
 		font-family: monospace;
-		font-size: 5rem;
+		font-size: 3rem;
 	}
 
 	.avatar {
-		width: 40%;
+		width: 30%;
 		height: auto;
 	}
 
@@ -254,6 +254,12 @@ const handleSubscription = async () => {
 		margin: 0 auto;
 		padding-left: 1rem;
   padding-right: 1rem;
+	}
+
+	.name {
+		width: 75%;
+		font-family: monospace;
+		font-size: 5rem;
 	}
 
 	.summary {

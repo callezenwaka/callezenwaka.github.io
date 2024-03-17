@@ -10,24 +10,29 @@
              placeholder="New blog title" aria-required="true" aria-invalid="false" autocomplete="title" required>
         </div>
         <div class="form--item">
-          <label for="content" class="form--label">Content:</label>
-          <textarea type="text" 
+          <label for="summary" class="form--label">Summary:</label>
+          <textarea 
+            type="text" 
             class="form--input" 
-            name="content" 
-            id="content" 
-            v-model="content"
-            placeholder="New blog content" 
-            @focus="handleAdjustFocus($event)"
-            @blur="handleAdjustBlur($event)"
+            name="summary" 
+            id="summary" 
+            v-model="summary"
+            placeholder="New blog summary" 
+            @change="handleAdjustFocus($event)" 
+            @keyup="handleAdjustFocus($event)"
+            @focus="handleAdjustFocus($event)" 
+            @blur="handleAdjustBlur($event)" 
             aria-required="true" 
-            aria-invalid="false" 
-            autocomplete="content" 
+            aria-invalid="false"
+            autocomplete="summary" 
             required
           >
           </textarea>
-          <!-- <textarea class="form--input" :name="`question_${exam.id}_${question.id}`" :id="`question_${exam.id}_${question.id}`"  -->
-            <!-- v-model.trim="question.question" @change="handleAdjust($event)" @keyup="handleAdjust($event)" @focus="handleWrite($event)"></textarea> -->
-          
+        </div>
+        <div class="form--item">
+          <div style="margin-top: 0.4rem;">
+            <QuillEditor class="form--editor" v-model:content="blog.content" content-type="html" toolbar="full" theme="snow" />
+          </div>
         </div>
         <div class="form--item multiple">
           <div class="form--item">
@@ -58,52 +63,39 @@
             </div>
           </div>
         </div>
-        <!-- <div class="form--item">
-          <label for="tags" class="form--label required">Tags:</label>
-          <div class="multiselect">
-            <div class="selectBox" @click="handleExpandOptions">
-              <select class="form--input">
-                <option>Select an option ({{ tags?.length }})</option>
-              </select>
-              <div class="overSelect"></div>
-            </div>
-            <div class="tags" id="tags" ref="tagRef">
-              <label :for="option" v-for="(option, i) in options" :key="i">
-                <input type="checkbox" :value="option" :id="option" v-model="tags"/>
-                <span>{{option}}</span>
-              </label>
-            </div>
-          </div>
-        </div> -->
         <div class="form--item multiple">
-          <button type="submit" class="blog--button" @click="handleEditing">Cancel</button>
-          <button type="submit" class="blog--button">Submit</button>
+          <button type="submit" class="form--button" @click="handleEditing">Cancel</button>
+          <button type="submit" class="form--button">Submit</button>
         </div>
       </form>
     </section>
     <section v-else class="blog">
+      <Platform v-bind="{ title: blog?.title!, summary: blog?.summary! }"></Platform>
       <h1 class="blog--title">{{ blog?.title }}</h1>
       <img v-if="blog?.avatar" class="blog--avatar" :src="blog?.avatar" :alt="blog?.title" type="image/*" :title="blog?.title">
-      <div v-if="isAuthenticated" class="form--item multiple">
-        <button type="button" class="blog--button" @click="handleEditing">Edit</button>
-        <button type="button" class="blog--button">Delete</button>
-      </div>
       <div class="blog--summary">
-        <p>{{ blog?.content }}</p>
-        <!-- <button type="submit" class="blog--button">More Details . . .</button> -->
+        <span v-html="blog?.content"></span>
+        <!-- <p>{{ blog?.content }}</p> -->
       </div>
       <p class="blog--tags">Tags: {{ blog?.tags }}</p>
+      <div v-if="isAuthenticated" class="form--item multiple">
+        <button type="button" class="form--button" @click="handleEditing">Edit</button>
+        <button type="button" class="form--button">Delete</button>
+      </div>
     </section>
   </div>
 </template>
 
 <script setup lang="ts">
 import BreadCrumb from "@/components/partials/BreadCrumb.vue";
+import Platform from "@/components/partials/Platform.vue";
 import { handleAdjustFocus, handleAdjustBlur } from "@/utils";
+import { QuillEditor } from '@vueup/vue-quill'
+import '@vueup/vue-quill/dist/vue-quill.snow.css';
 import { useBlogStore, useAuthStore } from '@/stores'
-import { ref, computed } from "vue";
-import { useRoute } from 'vue-router'
+import { /* useRoute, */ useRouter } from 'vue-router'
 import { storeToRefs } from "pinia";
+import { ref, /* computed */ } from "vue";
 // const props = defineProps({
 //   blog: {
 //     type: Object,
@@ -111,15 +103,19 @@ import { storeToRefs } from "pinia";
 //   },
 // });
 const { isAuthenticated } = storeToRefs(useAuthStore());
-const { tags: allTags } = storeToRefs(useBlogStore());
-const blogStore = useBlogStore()
-const route = useRoute()
-const { id } = route.params;
-const blog = computed(() => blogStore.getOneBlogById(id.toString()));
+const { tags: allTags, blog } = storeToRefs(useBlogStore());
+const blogStore = useBlogStore();
+const router = useRouter();
+// const route = useRoute();
+// const shareUrl = ref(window.location.href);
+
+// const { id } = route.params;
+// const blog = computed(() => blogStore.getOneBlogById(id.toString()));
 // const blog = computed(() => blogStore.getBlog(id.toString()));
 // const options = ref(['Politics', 'Economy', 'Social', 'Art', 'Technology']);
 const isEditing = ref(false);
 const title = ref(blog?.value?.title)
+const summary = ref(blog?.value?.summary)
 const content = ref(blog?.value?.content)
 const status = ref(blog?.value?.status)//: false,
 const tags = ref(blog?.value?.tags);
@@ -144,9 +140,17 @@ const handleExpandOptions = () => {
 };
 
 const handleUpdate = async() => {
-  blogStore.updateBlog({...blog!.value!, title: title!.value!, content: content!.value!, tags: tags!.value!});
+  blogStore.updateBlog({
+    ...blog!.value!, 
+    title: title!.value!, 
+    summary: summary!.value!,
+    content: content!.value!, 
+    status: status!.value!, 
+    tags: tags!.value!
+  });
   isEditing.value = !isEditing.value;
-  // router.push({ name: 'Blog', params: { id: blogId } })
+  await router.push({ name: 'Blog', params: { id: blog!.value!.id } });
+  // flash message here!
 };
 
 </script>
@@ -169,6 +173,8 @@ const handleUpdate = async() => {
 
 .blog--tags {
 	text-align: left;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 	/* margin: 1.5rem 0rem; */
 }
 
@@ -188,7 +194,7 @@ const handleUpdate = async() => {
 }
 
 .form--label {
-  color: var(--text-primary-color);
+  color: var(--text-color-primary);
   position: relative;
   height: 16px;
   text-align: left;
@@ -198,6 +204,7 @@ const handleUpdate = async() => {
   letter-spacing: 0.02rem;
 }
 .form--input {
+	color: var(--text-color-primary);
   height: 3rem;
   width: 100%;
   font-size: inherit;
@@ -208,7 +215,10 @@ const handleUpdate = async() => {
   padding-left: 10px;
   margin-top: 5px;
 }
-.form--button {
+.form--editor {
+  background-color: inherit;
+}
+.form--buttons {
   width: 100%;
   margin-top: 16px;
   font-size: 1.2rem !important;
@@ -223,11 +233,11 @@ const handleUpdate = async() => {
   box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
 }
 
-.blog--button {
-	background-color: var(--button-primary-color);
-	color: var(--text-primary-color);
+.form--button {
+	background-color: var(--button-background-color-primary);
+	color: var(--button-text-color-primary);
 	border: none;
-	border: 0.1rem solid var(--text-primary-color);
+	border: 0.1rem solid var(--text-color-primary);
 	border-radius: 0.5rem;
 	text-align: center;
 	font-size: inherit;
@@ -237,11 +247,11 @@ const handleUpdate = async() => {
 	transition: all 1s ease-out;
 }
 
-.blog--button.danger {
+.form--button.danger {
   background-color: var(--background-color-danger);
 }
 
-.blog--button:hover {
+.form--button:hover {
 	filter: drop-shadow(0 0 1.5rem var(--drop-shadow-primary));
 }
 
@@ -289,6 +299,12 @@ const handleUpdate = async() => {
   opacity: 0.5;
 } */
 
+/* p > img {
+  width: 100%;
+} */
+img[src^="data:image/*"] {
+  width: 100%;
+}
 
 @media only screen and (min-width: 964px) {
 	.blog {

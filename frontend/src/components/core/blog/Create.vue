@@ -2,7 +2,7 @@
   <div>
     <BreadCrumb></BreadCrumb>
     <section class="blog--create" v-if="isAuthenticated">
-      <h1 class="blog--title">Edit Blog</h1>
+      <h1 class="blog--title">Create Blog</h1>
       <form @submit.prevent="handleCreate">
         <div class="form--item">
           <label for="title" class="form--label">Title:</label>
@@ -10,27 +10,30 @@
             aria-required="true" aria-invalid="false" required>
         </div>
         <div class="form--item">
+          <label for="summary" class="form--label">Summary:</label>
+          <textarea 
+            type="text" 
+            class="form--input" 
+            name="summary" 
+            id="summary" 
+            v-model="blog.summary"
+            placeholder="New blog summary" 
+            @change="handleAdjustFocus($event)" 
+            @keyup="handleAdjustFocus($event)"
+            @focus="handleAdjustFocus($event)" 
+            @blur="handleAdjustBlur($event)" 
+            aria-required="true" 
+            aria-invalid="false"
+            autocomplete="summary" 
+            required
+          >
+          </textarea>
+        </div>
+        <div class="form--item">
           <label for="content" class="form--label">Content:</label>
-          <!-- <textarea type="text" class="form--input" name="content" id="content" v-model="blog.content"
-            placeholder="New blog content" @change="handleAdjustFocus($event)" @keyup="handleAdjustFocus($event)"
-            @focus="handleAdjustFocus($event)" @blur="handleAdjustBlur($event)" aria-required="true" aria-invalid="false"
-            autocomplete="content" required>
-          </textarea> -->
-          <!-- <br /> -->
-          <!-- <h2>HTML</h2>
-          <QuillEditor v-model:content="contentHTML" contentType="html" />
-          <pre v-highlightjs><code class="json">{{contentHTML}}</code></pre>
-          <br /> -->
           <div style="margin-top: 0.4rem;">
             <QuillEditor class="form--editor" v-model:content="blog.content" content-type="html" toolbar="full" theme="snow" />
-            <!-- <pre v-highlightjs><code class="json">{{blog.content}}</code></pre> -->
           </div>
-          <!-- <CKEditor :editor="editor" v-model="editorData" :config="editorConfig"></CKEditor> -->
-          <!-- <CKEditor v-model="content" :editor="editor" /> -->
-          <!-- <textarea class="form--input" :name="`question_${exam.id}_${question.id}`" :id="`question_${exam.id}_${question.id}`"  -->
-          <!-- v-model.trim="question.question" @change="handleAdjust($event)" @keyup="handleAdjust($event)" @focus="handleWrite($event)"></textarea> -->
-
-          <!-- @focus="handleWrite($event)" -->
         </div>
         <div class="form--item multiple">
           <div class="form--item">
@@ -61,25 +64,8 @@
             </div>
           </div>
         </div>
-        <!-- <div class="form--item">
-          <label for="tags" class="form--label required">Tags:</label>
-          <div class="multiselect">
-            <div class="selectBox" @click="handleExpandOptions">
-              <select class="form--input">
-                <option>Select an option ({{ tags?.length }})</option>
-              </select>
-              <div class="overSelect"></div>
-            </div>
-            <div class="tags" id="tags" ref="tagRef">
-              <label :for="option" v-for="(option, i) in options" :key="i">
-                <input type="checkbox" :value="option" :id="option" v-model="tags"/>
-                <span>{{option}}</span>
-              </label>
-            </div>
-          </div>
-        </div> -->
         <div class="form--item">
-          <button type="submit" class="blog--button">Submit</button>
+          <button type="submit" class="form--button">Submit</button>
         </div>
       </form>
     </section>
@@ -88,51 +74,28 @@
 
 <script setup lang="ts">
 import BreadCrumb from "@/components/partials/BreadCrumb.vue";
-// import { handleAdjustFocus, handleAdjustBlur } from "@/utils";
-import { v4 as uuidv4 } from 'uuid';
-import { useAuthStore, useBlogStore } from "@/stores";
-import { Blog } from "@/types";
-import { storeToRefs } from "pinia";
-import { reactive, ref } from "vue";
-import router from "@/router";
+import { handleAdjustFocus, handleAdjustBlur } from "@/utils";
 import { QuillEditor } from '@vueup/vue-quill'
 import '@vueup/vue-quill/dist/vue-quill.snow.css';
+import { v4 as uuidv4 } from 'uuid';
+import { Blog } from "@/types";
+import { useRouter } from 'vue-router';
+import { storeToRefs } from "pinia";
+import { reactive, ref } from "vue";
+import { useAuthStore, useBlogStore } from "@/stores";
+
 const { isAuthenticated } = storeToRefs(useAuthStore());
 const { tags } = storeToRefs(useBlogStore());
-
+const router = useRouter();
 const blogStore = useBlogStore()
 
 const tagRef = ref<(HTMLElement)>();
 const expanded = ref(false);
-// const content = ref('');
-// const contentHTML = ref('<h1>This is html header</h1>')
-// const inputValue = ref('<h1>This is header</h1><p>This is paragraph</p>')
-
-// const editor = ref(ClassicEditor);
-// const editorData = ref('');
-// const editorConfig = ref( {
-//   toolbar: [ 'bold', 'italic', 'link' ]
-// } );
-
-// onMounted(() => {
-//   editor.value = ClassicEditor.create(document.querySelector('.ck-content') as HTMLElement);
-// });
-
-// onBeforeUnmount(() => {
-//   editor.value?.destroy(); // Optional, but good practice to clean up
-// });
-
-// onMounted(() => {
-//   editor.value = createEditor(); // Use createEditor() from the plugin
-// });
-
-// onBeforeUnmount(() => {
-//   editor.value?.destroy();
-// });
 
 const blog: Blog = reactive({
   id: uuidv4(),
   title: '',
+  summary: '',
   content: '<p>Enter blog content.</p>',
   avatar: 'avatar',
   status: true,
@@ -154,8 +117,10 @@ const handleExpandOptions = () => {
 };
 
 const handleCreate = async () => {
-  blogStore.addBlog({ ...blog });
-  router.push({ name: 'Blog', params: { id: blog.id } })
+  console.log('blog: ', blog);
+  await blogStore.addBlog({ ...blog });
+  await router.push({ name: 'Blog', params: { id: blog.id } });
+  // flash message here!
 };
 
 </script>
@@ -187,7 +152,7 @@ const handleCreate = async () => {
 }
 
 .form--label {
-  color: var(--text-primary-color);
+  color: var(--text-color-primary);
   position: relative;
   height: 16px;
   text-align: left;
@@ -198,6 +163,7 @@ const handleCreate = async () => {
 }
 
 .form--input {
+	color: var(--text-color-primary);
   height: 3rem;
   width: 100%;
   font-size: inherit;
@@ -213,7 +179,7 @@ const handleCreate = async () => {
   background-color: inherit;
 }
 
-.form--button {
+.form--buttons {
   width: 100%;
   margin-top: 16px;
   font-size: 1.2rem !important;
@@ -228,11 +194,11 @@ const handleCreate = async () => {
   box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
 }
 
-.blog--button {
-  background-color: var(--button-primary-color);
-  color: var(--text-primary-color);
+.form--button {
+  background-color: var(--button-background-color-primary);
+  color: var(--button-text-color-primary);
   border: none;
-  border: 0.1rem solid var(--text-primary-color);
+  border: 0.1rem solid var(--text-color-primary);
   border-radius: 0.5rem;
   text-align: center;
   font-size: inherit;
@@ -242,11 +208,11 @@ const handleCreate = async () => {
   transition: all 1s ease-out;
 }
 
-.blog--button.danger {
+.form--button.danger {
   background-color: var(--background-color-danger);
 }
 
-.blog--button:hover {
+.form--button:hover {
   filter: drop-shadow(0 0 1.5rem var(--drop-shadow-primary));
 }
 

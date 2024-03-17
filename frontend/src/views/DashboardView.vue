@@ -32,13 +32,13 @@ import BreadCrumb from "@/components/partials/BreadCrumb.vue";
 }
 .sub--heading {
   display: flex;
-  background-color: var(--button-primary-color);
-  color: var(--text-primary-color);
+  background-color: var(button-background-color-primary);
+  color: var(--text-color-primary);
   justify-content: space-around;
 }
 aside {
-	background-color: var(--button-primary-color);
-	color: var(--text-primary-color);
+	background-color: var(button-background-color-primary);
+	color: var(--text-color-primary);
   width: 10%;
   height: 100vh;
 }

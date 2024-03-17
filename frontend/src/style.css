@@ -28,6 +28,43 @@
   ... Define dark theme colors
 } */
 
+:root {
+  --background-color-primary: #ebebeb;
+  --background-color-secondary: #fafafa;
+  --accent-color: #cacaca;
+  --text-color-primary: #222222;
+  --element-size: 4rem;
+}
+
+:root {
+  /* --background-color-primary: #FCFBF4; */
+  /* --background-color-secondary: #f7f9f9; */
+  --background-color-tertiary: #ffffff;
+  --background-color-danger: #ff0000;
+  --background-color-success: #008000;
+  --drop-shadow-primary: #646cffaa;
+  --accent-color: #3f3f3f;
+  --text-color-primary: #222222;
+  --input-background-color-primary: #f6f6f7;
+  --button-background-color-primary: #0f1419; /* #0f1419 #1d9bf0 #1d9bf0; #0040ff*/
+  --button-text-color-primary: #ebebeb;
+  /* background-color: #000000; */
+}
+
+html, body {
+  background-color: var(--background-color-secondary) !important;
+  color: var(--text-color-primary) !important;
+}
+
+.active {
+  background-color: var(--background-color-secondary);
+}
+
+.theme--svg {
+  width: 1rem;
+  fill: var(--text-color-primary);
+}
+
 /* body {
   background-color: var(--background-color);
   color: var(--text-color);
@@ -46,6 +83,7 @@ html,
 body {
   height: 100%;
   width: 100%;
+  font-size: 1rem;
 }
 
 a {
@@ -66,7 +104,13 @@ body {
   /* min-width: 320px;
   min-height: 100vh; */
 }
+.ql-toolbar {
+  color: var(--text-color-primary) !important;
+}
 
+input, select, .ql-editor {
+  background-color: var(--input-background-color-primary);
+}
 /* h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -103,6 +147,13 @@ button:focus-visible {
 }
 
 @media (prefers-color-scheme: light) {
+  *,
+::after,
+::before,
+html,
+body {
+  font-size: 1.5rem;
+}
   /* :root {
     color: #213547;
     background-color: #ffffff;
@@ -112,6 +163,12 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+@media only screen and (min-width: 480px) {
+  body {
+    font-size: 1.1rem;
   }
 }
 

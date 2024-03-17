@@ -7,18 +7,17 @@
   --background-color-secondary: #14181e;
   --background-color-tertiary: #000000;
   --background-color-danger: #ff0000;
-  --background-color-success: #008000;
+  --background-color-success: #000000;
   --drop-shadow-primary: #646cffaa;
   --accent-color: #3f3f3f;
   --text-color-primary: #f3f4f5;
-  --input-background-color-primary: #3B3B3B;
-  --button-background-color-primary: #0F1216; /* #1d9bf0; #0040ff*/
+  button-background-color-primary: #0F1216; /* #1d9bf0; #0040ff*/
   /* background-color: #000000; */
 }
 
 html, body {
-  background-color: var(--background-color-secondary) !important;;
-  color: var(--text-color-primary) !important;;
+  background-color: var(--background-color-secondary);
+  color: var(--text-color-primary);
 }
 
 .active {

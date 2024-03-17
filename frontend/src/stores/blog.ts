@@ -1,6 +1,6 @@
 // stores/blogs.ts
 import { defineStore, storeToRefs } from 'pinia'
-import { Blog } from "@/types";
+import { Blog, BlogsRequest } from "@/types";
 import { blogClient } from "@/services";
 import { useAuthStore } from '@/stores';
 // const { idToken } = storeToRefs(useAuthStore());
@@ -11,20 +11,22 @@ import { useAuthStore } from '@/stores';
 // }
 
 const blogs: Blog[] = [
-	// {
-	// 	id: 'datafest2020',
-	// 	title: 'Datafest Africa 2020',
-	// 	content: 'DataFest Africa is an annual event that ultimately celebrates data science and its ever-evolving impact on the African continent. Since its inception in 2019, the conference has become a melting pot of some of the brightest minds in the region, bringing together stakeholders of diverse backgrounds including; government, civil society, academics, students and private industry experts to connect, learn, and collaborate on innovative data-driven solutions.',
-  //   avatar: 'datafestSponsor',
-  //   status: true,
-  //   tags: ['Politics', 'Economy', 'Social'],
-  //   link: 'https://www.datafestafrica.com/',
-  //   created_at: 1700438400000,
-  //   updated_at: 1700438400000,
-	// },
+	{
+		id: 'datafest2020',
+		title: 'Datafest Africa 2020',
+    summary: 'DataFest Africa is an annual event that ultimately celebrates data science and its ever-evolving impact on the African continent. Since its inception in 2019, the conference has become a melting pot of some of the brightest minds in the region, bringing together stakeholders of diverse backgrounds including; government, civil society, academics, students and private industry experts to connect, learn, and collaborate on innovative data-driven solutions.',
+		content: 'DataFest Africa is an annual event that ultimately celebrates data science and its ever-evolving impact on the African continent. Since its inception in 2019, the conference has become a melting pot of some of the brightest minds in the region, bringing together stakeholders of diverse backgrounds including; government, civil society, academics, students and private industry experts to connect, learn, and collaborate on innovative data-driven solutions.',
+    avatar: 'datafestSponsor',
+    status: true,
+    tags: ['Politics', 'Economy', 'Social'],
+    link: 'https://www.datafestafrica.com/',
+    created_at: 1700438400000,
+    updated_at: 1700438400000,
+	},
 	{
 		id: 'datafest2021',
 		title: 'Datafest Africa 2021',
+    summary: 'DataFest Africa is an annual event that ultimately celebrates data science and its ever-evolving impact on the African continent. Since its inception in 2019, the conference has become a melting pot of some of the brightest minds in the region, bringing together stakeholders of diverse backgrounds including; government, civil society, academics, students and private industry experts to connect, learn, and collaborate on innovative data-driven solutions.',
 		content: 'DataFest Africa is an annual event that ultimately celebrates data science and its ever-evolving impact on the African continent. Since its inception in 2019, the conference has become a melting pot of some of the brightest minds in the region, bringing together stakeholders of diverse backgrounds including; government, civil society, academics, students and private industry experts to connect, learn, and collaborate on innovative data-driven solutions.',
     avatar: 'datafestSponsor',
     status: true,
@@ -36,6 +38,7 @@ const blogs: Blog[] = [
 	{
 		id: 'datafest2022',
 		title: 'Datafest Africa 2022',
+    summary: 'DataFest Africa is an annual event that ultimately celebrates data science and its ever-evolving impact on the African continent. Since its inception in 2019, the conference has become a melting pot of some of the brightest minds in the region, bringing together stakeholders of diverse backgrounds including; government, civil society, academics, students and private industry experts to connect, learn, and collaborate on innovative data-driven solutions.',
 		content: 'DataFest Africa is an annual event that ultimately celebrates data science and its ever-evolving impact on the African continent. Since its inception in 2019, the conference has become a melting pot of some of the brightest minds in the region, bringing together stakeholders of diverse backgrounds including; government, civil society, academics, students and private industry experts to connect, learn, and collaborate on innovative data-driven solutions.',
     avatar: 'datafestSponsor',
     status: true,
@@ -47,6 +50,7 @@ const blogs: Blog[] = [
 	{
 		id: 'datafest2023',
 		title: 'Datafest Africa 2023',
+    summary: 'DataFest Africa is an annual event that ultimately celebrates data science and its ever-evolving impact on the African continent. Since its inception in 2019, the conference has become a melting pot of some of the brightest minds in the region, bringing together stakeholders of diverse backgrounds including; government, civil society, academics, students and private industry experts to connect, learn, and collaborate on innovative data-driven solutions.',
 		content: 'DataFest Africa is an annual event that ultimately celebrates data science and its ever-evolving impact on the African continent. Since its inception in 2019, the conference has become a melting pot of some of the brightest minds in the region, bringing together stakeholders of diverse backgrounds including; government, civil society, academics, students and private industry experts to connect, learn, and collaborate on innovative data-driven solutions.',
     avatar: 'datafestSponsor',
     status: true,
@@ -58,6 +62,7 @@ const blogs: Blog[] = [
 	{
 		id: 'datafest202',
 		title: 'Datafest Africa 2024',
+    summary: 'DataFest Africa is an annual event that ultimately celebrates data science and its ever-evolving impact on the African continent. Since its inception in 2019, the conference has become a melting pot of some of the brightest minds in the region, bringing together stakeholders of diverse backgrounds including; government, civil society, academics, students and private industry experts to connect, learn, and collaborate on innovative data-driven solutions.',
 		content: 'DataFest Africa is an annual event that ultimately celebrates data science and its ever-evolving impact on the African continent. Since its inception in 2019, the conference has become a melting pot of some of the brightest minds in the region, bringing together stakeholders of diverse backgrounds including; government, civil society, academics, students and private industry experts to connect, learn, and collaborate on innovative data-driven solutions.',
     avatar: 'datafestSponsor',
     status: true,
@@ -69,6 +74,7 @@ const blogs: Blog[] = [
 	{
 		id: 'datafest2025',
 		title: 'Datafest Africa 2025',
+    summary: 'DataFest Africa is an annual event that ultimately celebrates data science and its ever-evolving impact on the African continent. Since its inception in 2019, the conference has become a melting pot of some of the brightest minds in the region, bringing together stakeholders of diverse backgrounds including; government, civil society, academics, students and private industry experts to connect, learn, and collaborate on innovative data-driven solutions.',
 		content: 'DataFest Africa is an annual event that ultimately celebrates data science and its ever-evolving impact on the African continent. Since its inception in 2019, the conference has become a melting pot of some of the brightest minds in the region, bringing together stakeholders of diverse backgrounds including; government, civil society, academics, students and private industry experts to connect, learn, and collaborate on innovative data-driven solutions.',
     avatar: 'datafestSponsor',
     status: true,
@@ -81,28 +87,38 @@ const blogs: Blog[] = [
 
 export const useBlogStore = defineStore('blog', {
   state: () => ({
-    blogs,
-    // blogs: [] as Blog[], // an array of blog objects
+    // blogs,
+    blogs: [] as Blog[], // an array of blog objects
     blog: null as Blog | null,
     tags: ['Politics', 'Economy', 'Social', 'Art', 'Technology'],
+    lastVisibleTimestamp: undefined as number | undefined,
+    firstVisibleTimestamp: undefined as number | undefined,
   }),
   getters: {
     getAllBlogs: state => state.blogs,
     getOneBlog: state => state.blog,
     getOneBlogById: state => (id: string) => state.blogs.find(blog => blog.id === id),
     getTags: state => state.tags,
+    getLastVisibleTimestamp: state => state.lastVisibleTimestamp,
+    getFirstVisibleTimestamp: state => state.firstVisibleTimestamp,
   },
   actions: {
-    async getBlogs() {
+    async getBlogs(query: BlogsRequest) {
       const { idToken } = storeToRefs(useAuthStore());
       try {
         // TODO: Check vuex store for data
-			  if (this.blogs && !!this.blogs.length) return this.blogs;
+			  if (!query.isRequest && this.blogs && !!this.blogs.length) return this.blogs;
         // TODO: api call
         // a method to fetch blogs from an API and update the state
-        const data = await blogClient.getBlogs(idToken.value);
-        if (!Array.isArray(data)) return;
-        else return this.blogs = data;
+        const data = await blogClient.getBlogs(idToken.value, query);
+        // if (!Array.isArray(data)) return;
+        if (typeof data !== 'object') return;
+        else {
+          this.lastVisibleTimestamp = data?.lastVisibleTimestamp?? undefined;
+          this.firstVisibleTimestamp = data?.firstVisibleTimestamp?? undefined;
+          this.blogs = data.blogs;
+          return;
+        };
       } catch (error) {
         console.log(error);
       }
@@ -130,6 +146,7 @@ export const useBlogStore = defineStore('blog', {
         // TODO: api call
         // a method to fetch blog from an API and update the state
         const data = await blogClient.getBlog(idToken.value, payload);
+        console.log('data: ', data);
         if (typeof data !== 'object') return;
         else return this.blog = data;
       } catch (error) {
@@ -137,14 +154,15 @@ export const useBlogStore = defineStore('blog', {
       }
     },
     async addBlog(blog: Blog) {
-      // const { idToken } = storeToRefs(useAuthStore());
+      const { idToken } = storeToRefs(useAuthStore());
       try {
         // TODO: api call
         // a method to add a blog to the state
-        // const data = await blogClient.addBlog(idToken.value, blog);
-        // if (typeof data !== 'object') return;
-        // else return this.blogs.push(blog);
-        return this.blogs.push(blog);
+        const data = await blogClient.addBlog(idToken.value, blog);
+        console.log('data: ', data);
+        if (typeof data !== 'object') return;
+        else return this.blogs.push(blog);
+        // return this.blogs.push(blog);
       } catch (error) {
         console.log(error);
       }
@@ -155,7 +173,7 @@ export const useBlogStore = defineStore('blog', {
         // TODO: api call
         // a method to edit a blog from the state
         const data = await blogClient.updateBlog(idToken.value, blog);
-
+        console.log('data: ', data);
         if (typeof data !== 'object') return;
 
         const index = this.blogs.findIndex((b) => b.id === blog.id);

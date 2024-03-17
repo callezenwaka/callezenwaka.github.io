@@ -98,7 +98,7 @@
 				</ul>
 			</section>
       <div class="copy--right">
-        <span>Callis Ezenwaka &copy; {{ year }}. Designed by </span>
+        <span>Callis Ezenwaka &copy; {{ year }}. Powered by </span>
         <a class="" href="https://barestripe.com/" target="_blank" rel="noopener">Barestripe</a>
       </div>
 		</footer>
@@ -115,13 +115,13 @@ const year = ref(new Date().getFullYear());
 .footer {
   /* max-width: 960px; */
   margin: 0 auto;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
   margin-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 .social {
   /* background-color: var(--background-color-primary); */
-  color: var(--text-primary-color);
+  color: var(--text-color-primary);
   border: 2px solid var(--background-color-primary);
   padding-top: 1rem;
   padding-left: 1rem;
@@ -149,7 +149,7 @@ const year = ref(new Date().getFullYear());
 }
 
 .social--icon {
-	color: var(--text-primary-color);
+	color: var(--text-color-primary);
 	width: 2.5em;
 	height: 2.5em;
 	padding: 0;
@@ -173,6 +173,8 @@ const year = ref(new Date().getFullYear());
   max-width: 960px;
     margin: 0 auto;    
   margin-top: 5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 }

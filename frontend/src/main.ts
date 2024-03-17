@@ -1,7 +1,11 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import router from './router'
-import './style.css'
+import firebase from '@/firebase';
+import { useAuthStore } from '@/stores';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+const firebaseAuth = getAuth(firebase);
+import './style.css';
 import App from './App.vue';
 
 // import { QuillEditor } from '@vueup/vue-quill'
@@ -19,31 +23,37 @@ import App from './App.vue';
 
 // const isDarkMode = localStorage.getItem('isDarkMode') === 'true';
 // localStorage.setItem('isDarkMode', isDarkMode ? 'true' : 'false');
+// export const isDarkMode = localStorage.getItem('isDarkMode') === 'true';
+// if (!isDarkMode) {
+//   console.log('dark')
+//   localStorage.setItem('isDarkMode', 'true');
+// } else {
+//   console.log('light')
+//   localStorage.removeItem("isDarkMode");
+// }
 
 export const toggleTheme = () => {
   const darkThemeLinkEl = document.querySelector('#theme-style');
   const isDarkMode = localStorage.getItem('isDarkMode') === 'true';
-  darkThemeLinkEl!.setAttribute('href', `${ isDarkMode ? './dark.css' : './light.css' }`);
-  console.log('isDarkMode: ', isDarkMode)
+  darkThemeLinkEl!.setAttribute('href', `${ isDarkMode ? 'dark.css' : 'light.css' }`);
+  console.log('main isDarkMode: ', isDarkMode)
   // localStorage.setItem('isDarkMode', isDarkMode ? 'true' : 'false');
 
-  // if (!isDarkMode) {
-  //   // addDarkTheme();
-  //   console.log('dark')
-  //   // localStorage.setItem("theme", 'dark');
-  //   localStorage.setItem('isDarkMode', 'true');
-  //   // darkThemeLinkEl!.setAttribute('href', './dark.css');
-  //   // darkThemeLinkEl!.setAttribute('href', `${ isDarkTheme.value ? './dark.css' : './light.css' }`);
-  // } else {
-  //   // darkThemeLinkEl?.remove();
-  //   console.log('light')
-  //   localStorage.removeItem("isDarkMode");
-  //   // darkThemeLinkEl!.setAttribute('href', './light.css');
-  // }
-  // isDark.value = !isDark.value;
 };
 
 // .component('QuillEditor', QuillEditor)
-toggleTheme();
+// toggleTheme();
 
 createApp(App).use(createPinia()).use(router).mount('#app')
+
+const authStore = useAuthStore();
+onAuthStateChanged(firebaseAuth, async(user) => {
+  if (user && user.emailVerified) {
+    const { token } = await user.getIdTokenResult();
+    console.log('user: ', user);
+    console.log('token: ', token);
+    await authStore.setIsAuthenticated(true);
+    await authStore.setCurrentUser(user);
+    await authStore.setIdToken(token);
+  }
+});

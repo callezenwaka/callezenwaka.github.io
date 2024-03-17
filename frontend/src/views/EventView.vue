@@ -22,9 +22,19 @@ import BreadCrumb from "@/components/partials/BreadCrumb.vue";
 import datafestEvent from '@/assets/presentation/datafest/datafest.jpg';
 import datafestPresentation from '@/assets/presentation/datafest/presentation.jpg';
 import datafestSponsor from '@/assets/presentation/datafest/sponsor.jpg';
+import cyberweekPresentation from '@/assets/presentation/cyberweek/cyberweek.jpg';
 import { reactive } from 'vue';
 
 const presentations = reactive([
+	{
+		id: 'cyberweek2019',
+		name: 'GE Cyber Week 2019',
+		summary: 'GE Global Cyber Week is an annual event that ultimately celebrates data science and its ever-evolving impact on the African continent. Since its inception in 2019, the conference has become a melting pot of some of the brightest minds in the region, bringing together stakeholders of diverse backgrounds including; government, civil society, academics, students and private industry experts to connect, learn, and collaborate on innovative data-driven solutions.',
+    sponsor: datafestSponsor,
+    presentation: cyberweekPresentation,
+    event: datafestEvent,
+    link: 'https://www.datafestafrica.com/',
+	},
 	{
 		id: 'datafest2022',
 		name: 'Datafest Africa 2022',
@@ -34,16 +44,8 @@ const presentations = reactive([
     event: datafestEvent,
     link: 'https://www.datafestafrica.com/',
 	},
-	{
-		id: 'datafest2023',
-		name: 'Datafest Africa 2023',
-		summary: 'DataFest Africa is an annual event that ultimately celebrates data science and its ever-evolving impact on the African continent. Since its inception in 2019, the conference has become a melting pot of some of the brightest minds in the region, bringing together stakeholders of diverse backgrounds including; government, civil society, academics, students and private industry experts to connect, learn, and collaborate on innovative data-driven solutions.',
-    sponsor: datafestSponsor,
-    presentation: datafestPresentation,
-    event: datafestEvent,
-    link: 'https://www.datafestafrica.com/',
-	},
 ]);
+
 </script>
 
 <style scoped lang="css">
@@ -51,8 +53,8 @@ const presentations = reactive([
   /* max-width: 960px; */
   margin: 0 auto;
   padding-top: 1rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 .presentation--items {
   display: flex;

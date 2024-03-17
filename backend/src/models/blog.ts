@@ -1,4 +1,4 @@
-//
+// define blog interface
 export interface Blog {
   id: string;
   title: string;

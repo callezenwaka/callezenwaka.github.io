@@ -13,7 +13,7 @@ const auth = getAuth(firebase);
 export const useAuthStore = defineStore('auth', {
   state: () => ({
     currentUser: {},
-    isAuthenticated: true,
+    isAuthenticated: false,
     idToken: '',
   }),
   getters: {
