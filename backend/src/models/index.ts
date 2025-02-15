@@ -11,5 +11,4 @@ export interface ErrorType {
 export interface BlogsResponse {
 	blogs: Blog[];
 	lastVisibleTimestamp?: number;
-  firstVisibleTimestamp?: number;
 }

@@ -10,11 +10,11 @@ export interface Token {
 export interface BlogsResponse {
 	blogs: Blog[];
 	lastVisibleTimestamp?: number | undefined;
-  firstVisibleTimestamp?: number | undefined;
 }
 
 export interface BlogsRequest {
   limit: number; 
+  page: number,
   lastVisible?: number; 
   direction: string;
   isRequest?: boolean;

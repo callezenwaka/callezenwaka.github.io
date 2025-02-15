@@ -1,8 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { Blog, BlogsResponse } from '../models';
-import { fetchBlogs } from "../libs/utils";
+// import { fetchBlogs } from "../libs/utils";
 import { BLOG_ROLE_ADMIN, } from "../libs/constants";
-// import { getAuth } from "firebase-admin/auth";
 import { Firestore, Timestamp } from '@google-cloud/firestore';
 const firestore = new Firestore();
 
@@ -17,18 +16,18 @@ export default class BlogController {
 			// const { id, ...rest } = req.body;
 			console.log('body: ', req.body.yes_no_question);
 			// console.log('body: ', JSON.parse(req.body));
-	
+
 			// if (!id || !rest.title || !rest.title) return res.status(400).json('Bad parameters!');
-	
+
 			// TODO: check role
 			// if(!roles.some((role: number) => [BLOG_ROLE_ADMIN].includes(role)))
 			//   return res.status(400).json('Bad role parameters!');
-	
+
 			// TODO: add a new blog to DB
 			// await firestore.collection('blog').doc(id).set({ ...rest });
-	
+
 			// TODO: create a new blog    
-			return res.status(200).json({message: 'Success'});
+			return res.status(200).json({ message: 'Success' });
 		} catch (error) {
 			console.log('error: ', error);
 			return res.status(500).json('Internal Server Error!');
@@ -94,36 +93,48 @@ export default class BlogController {
 	 * @return {object} json blog
 	 * Retrieve items
 	 */
-	async getBlogs(req: any, res: Response, next: NextFunction): Promise<object> {
+	async getBlogs(req: Request, res: Response, next: NextFunction): Promise<object> {
 		try {
-			// TODO: Fix query params and pagination (priority medium)
-			const { limit, lastVisible, direction = 'desc', } = req.query;
-			console.log('lastVisible: ', lastVisible);
+			// TODO: Destructure query and declare variables
+			const { limit = '10', page = 1, lastVisible = null, direction = 'desc', } = req.query;
+			const parsedLimit = parseInt(limit as string, 10);
+			const parsedPage = parseInt(page as string, 1);
+			const parsedLastVisible = lastVisible ? Number(lastVisible) : null;
 
-			// convert lastVisible to timestamp
-			// const timestamp = lastVisible ? (typeof lastVisible === 'number' ? Timestamp.fromMillis(lastVisible) : lastVisible) : null;
-			// const timestamp = lastVisible? Timestamp.fromMillis(lastVisible * 1000) : lastVisible;
+			// TODO: Initialize variables
+			let blogs: Blog[] = [];
+			let lastVisibleTimestamp = null;
 
-			// build query
+			// TODO: Confirm that the lastVisible is boolean and return
+			if (parsedPage > 1 && parsedLastVisible === null) {
+				return res.status(400).json({ message: "Invalid query parameter for 'lastVisible'" });
+			}
+
+			// TODO: Build query and 
 			let query = firestore.collection('blog')
 				.where('status', '==', true)
-				.orderBy('created_at', direction)
-				.limit(parseInt(limit));
+				.orderBy('created_at', direction as 'desc')
+				.limit(parsedLimit);
 
-			if (lastVisible) {
-				// Use the last document snapshot as the cursor
-				query = query.startAfter(Number(lastVisible));
+			// TODO: Use the last document snapshot as the cursor and is a number
+			if (parsedLastVisible !== null) {
+				query = query.startAfter(parsedLastVisible);
 			}
 
-			// Store a reference to the docs array
-			let querySnapshot = await query.get();
-			// Store a reference to the docs array
-			const docs = querySnapshot.docs;
-			if (direction === 'asc') {
-				// Now reverse the stored array
-				docs.reverse();
+			// TODO: Store a reference to the docs array
+			const data = await query.get();
+
+			// Check if no data is found
+			if (data.empty) {
+				return res.status(200).json({ blogs, lastVisibleTimestamp, });
 			}
-			const blogs: Blog[] = docs.map((doc) => ({
+
+			// TODO: Assign the last data created_at to lastVisibleTimestamp variable
+			// Assign last document timestamp for pagination
+			lastVisibleTimestamp = data.docs[data.docs.length - 1]?.data()?.created_at || null;
+
+			// TODO: Map data to blogs variable
+			blogs = data.docs.map((doc) => ({
 				id: doc.id,
 				title: doc.data().title,
 				summary: doc.data().summary,
@@ -135,22 +146,9 @@ export default class BlogController {
 				created_at: doc.data().created_at,
 				updated_at: doc.data().updated_at,
 			}));
-			// console.log('docs: ', docs);
 
-			// Extract lastVisibleTimestamp for the next request
-			const lastVisibleTimestamp = docs.length >= limit ? docs[docs.length - 1].data().created_at : undefined;
-			const firstVisibleTimestamp = lastVisible ? docs[0].data().created_at : lastVisible;
-			// let firstVisibleTimestamp = lastVisible !== undefined ? querySnapshot.docs[0].data().created_at : undefined;
-			// let firstVisibleTimestamp = lastVisible !== undefined ? lastVisible : null;
-			// const responseObj = {
-			// 	blogs,
-			// 	firstVisibleTimestamp: lastVisible !== undefined ? querySnapshot.docs[0].data().created_at : undefined,
-			// 	lastVisibleTimestamp,
-			// };
-
-			// return res.status(200).json(responseObj);
-
-			return res.status(200).json({ blogs, firstVisibleTimestamp, lastVisibleTimestamp });
+			// TODO: Return response to client
+			return res.status(200).json({ blogs, lastVisibleTimestamp });
 		} catch (error) {
 			console.log('error: ', error);
 			return res.status(500).json('Internal Server Error!');

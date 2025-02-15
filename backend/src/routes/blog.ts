@@ -6,7 +6,7 @@ import { BlogController } from '../controllers/index';
 const blogRouter = Router();
 const blogController = new BlogController();
 
-blogRouter.get('/', isAuthenticated, blogController.getBlogs);
+blogRouter.get('/', blogController.getBlogs);
 
 blogRouter.get('/:id', isAuthenticated, blogController.getBlog);
 

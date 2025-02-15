@@ -10,7 +10,7 @@ import { useAuthStore } from '@/stores';
 //   blog: Blog | null
 // }
 
-const blogs: Blog[] = [
+const _blogs: Blog[] = [
 	{
 		id: 'datafest2020',
 		title: 'Datafest Africa 2020',
@@ -87,12 +87,11 @@ const blogs: Blog[] = [
 
 export const useBlogStore = defineStore('blog', {
   state: () => ({
-    // blogs,
+    _blogs,
     blogs: [] as Blog[], // an array of blog objects
     blog: null as Blog | null,
     tags: ['Politics', 'Economy', 'Social', 'Art', 'Technology'],
     lastVisibleTimestamp: undefined as number | undefined,
-    firstVisibleTimestamp: undefined as number | undefined,
   }),
   getters: {
     getAllBlogs: state => state.blogs,
@@ -100,7 +99,6 @@ export const useBlogStore = defineStore('blog', {
     getOneBlogById: state => (id: string) => state.blogs.find(blog => blog.id === id),
     getTags: state => state.tags,
     getLastVisibleTimestamp: state => state.lastVisibleTimestamp,
-    getFirstVisibleTimestamp: state => state.firstVisibleTimestamp,
   },
   actions: {
     async getBlogs(query: BlogsRequest) {
@@ -111,13 +109,11 @@ export const useBlogStore = defineStore('blog', {
         // TODO: api call
         // a method to fetch blogs from an API and update the state
         const data = await blogClient.getBlogs(idToken.value, query);
-        // if (!Array.isArray(data)) return;
         if (typeof data !== 'object') return;
         else {
           this.lastVisibleTimestamp = data?.lastVisibleTimestamp?? undefined;
-          this.firstVisibleTimestamp = data?.firstVisibleTimestamp?? undefined;
-          this.blogs = data.blogs;
-          return;
+          this.blogs.push(...data.blogs);
+          return data.blogs;
         };
       } catch (error) {
         console.log(error);

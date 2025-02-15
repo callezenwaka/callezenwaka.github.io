@@ -23,24 +23,14 @@ const firestore = new Firestore();
  * Retrieve blogs
  */
 export const fetchBlogs = async (limit: number = 5, lastVisible?: Timestamp): Promise<BlogsResponse> => {
-	console.log('lastVisible: ', typeof(lastVisible));
-	// const timestamp = new Timestamp(Number(lastVisible), 0)
-	// const seconds = lastVisible / 1000;
 	
 	let q = firestore.collection('blog').orderBy('created_at', 'desc').where('status', '==', true);
 
-	if (lastVisible) {
-		// const timestamp = new Timestamp((lastVisible / 1000), 0); // Assuming no nanoseconds information
-		console.log('lastVisible: ', lastVisible);
-		// Timestamp.fromMillis(lastVisible);
-		// Assuming you have access to firestore object
-		// const timestamp = Timestamp.fromDate(new Date(lastVisible.nanoseconds));
-		// console.log('timestamp: ', typeof(timestamp));
-		q = q.startAfter(lastVisible);
-	}
+	if (lastVisible) q = q.startAfter(lastVisible);
 
 	const querySnapshot = await q.limit(limit).get();
-	// console.log('querySnapshot: ', querySnapshot.docs);
+	
+	// TODO: 
 	const blogs = querySnapshot.docs.map((doc) => ({
 		id: doc.id,
 		title: doc.data().title,
@@ -54,12 +44,11 @@ export const fetchBlogs = async (limit: number = 5, lastVisible?: Timestamp): Pr
 		updated_at: doc.data().updated_at,
 	}));
 
-	const lastVisibleDoc = querySnapshot.docs[querySnapshot.docs.length - 1];
-	const lastVisibleTimestamp = lastVisibleDoc?.get('created_at');
-	console.log('lastVisibleTimestamp: ', typeof(lastVisibleTimestamp));
+	// TODO: Return last doc lastVisibleTimestamp
+	const lastVisibleTimestamp = querySnapshot.docs[querySnapshot.docs.length - 1]?.get('created_at');
 
 	return { blogs, lastVisibleTimestamp };
-}
+};
 
 /**
  * 
