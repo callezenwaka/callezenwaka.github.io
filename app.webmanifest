@@ -1,0 +1,32 @@
+{
+    "name": "Callis Ezenwaka",
+    "short_name": "callezenwaka",
+    "theme_color": "#43281C",
+    "display": "standalone",
+    "background_color": "#EFEFEF",
+    "start_url": "/",
+    "scope": "/",
+    "description": "The app for order at Coffee Masters, the best coffee shop in the Frontend world, by Frontend Masters.",
+    "icons": [
+        {
+          "src": "./src/assets/images/android-chrome-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        },
+        {
+          "src": "./src/assets/images/android-chrome-512x512.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "images/screen1.jpg",
+            "type": "image/jpeg"
+        },
+        {
+            "src": "images/screen2.jpg",
+            "type": "image/jpeg"
+        }
+    ]
+}

@@ -1,0 +1,162 @@
+:root {
+    --background-surface: #EFEFEF;
+    --primaryColor: #43281C;
+    --primaryColor: #f2e9d2;
+    --secondaryColor: #333D29;
+    --color3: #7F4F24;
+    --color4: #B08968;
+    --color5: #DDB892;
+    --color6: #EDE0D4;
+    --highlight: #FBF2C6;
+    --highlight: #2d2707;
+}
+
+:root {
+    --background-color-primary: #ebebeb;
+    --background-color-secondary: #fafafa;
+    --accent-color: #cacaca;
+    --text-color-primary: #222222;
+    --element-size: 4rem;
+}
+
+:root {
+    /* --background-color-primary: #FCFBF4; */
+    /* --background-color-secondary: #f7f9f9; */
+    --background-color-tertiary: #ffffff;
+    --background-color-danger: #ff0000;
+    --background-color-success: #008000;
+    --drop-shadow-primary: #646cffaa;
+    --accent-color: #3f3f3f;
+    --text-color-primary: #222222;
+    --input-background-color-primary: #f6f6f7;
+    --button-background-color-primary: #0f1419;
+    /* #0f1419 #1d9bf0 #1d9bf0; #0040ff*/
+    --button-text-color-primary: #ebebeb;
+    /* background-color: #000000; */
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    height: 100%;
+    width: 100%;
+}
+
+body>header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.header {
+    background-color: var(--primaryColor);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    min-height: 50px;
+    max-height: 55px;
+}
+
+.logo-item {
+    position: relative;
+}
+
+body>main {
+    margin: auto;
+    margin-top: 100px;
+    max-width: 500px;
+    max-width: 850px;
+}
+
+h1 {
+    background-color: var(--primaryColor);
+    color: white;
+    margin: 0;
+    text-align: center;
+    padding: 10px 0 5px 0;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+ul {
+    display: none;
+    padding: 0;
+}
+
+a.logo-link {
+    position: absolute;
+    top: -20px;
+}
+
+.logo {
+    /* position: absolute; */
+    padding: 0 0.5rem;
+    border-radius: 50%;
+}
+
+.logo:hover {
+    width: 100px;
+    scale: 1.1;
+}
+
+.logo {
+    width: 80px;
+    transition: transform 0.3s ease-out;
+}
+
+/* Apply scale transform based on scroll position */
+@media (min-height: 50px) {
+    .logo {
+        transform: scale(var(--scroll-factor, 1));
+    }
+}
+
+a.nav-link {
+    color: var(--highlight);
+    padding: 8px;
+    text-decoration: none;
+}
+
+#linkHome {
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+#linkOrder {
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+section.page {
+    display: none;
+}
+
+#badge {
+    padding: 4px;
+    background-color: red;
+    border-radius: 15px;
+    width: 10px;
+    text-align: center;
+    font-size: x-small;
+    color: white;
+    position: absolute;
+    right: 5px;
+    top: 6px;
+}
+
+.footer {
+    text-align: center;
+    padding: 1rem;
+}

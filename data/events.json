@@ -1,0 +1,94 @@
+{
+  "events": [
+    {
+      "id": "cyberweek2019",
+      "name": "GE Cyber Week 2019",
+      "summary": "GE Global Cyber Week is an annual event that ultimately celebrates data science and its ever-evolving impact on the African continent. Since its inception in 2019, the conference has become a melting pot of some of the brightest minds in the region, bringing together stakeholders of diverse backgrounds including; government, civil society, academics, students and private industry experts to connect, learn, and collaborate on innovative data-driven solutions.",
+      "sponsor": "datafestSponsor",
+      "presentation": "src/assets/images/presentation/cyberweek/cyberweek.jpg",
+      "event": "datafestEvent",
+      "link": "https://www.datafestafrica.com/"
+    },
+    {
+      "id": "datafest2022",
+      "name": "Datafest Africa 2022",
+      "summary": "DataFest Africa is an annual event that ultimately celebrates data science and its ever-evolving impact on the African continent. Since its inception in 2019, the conference has become a melting pot of some of the brightest minds in the region, bringing together stakeholders of diverse backgrounds including; government, civil society, academics, students and private industry experts to connect, learn, and collaborate on innovative data-driven solutions.",
+      "sponsor": "datafestSponsor",
+      "presentation": "src/assets/images/presentation/cyberweek/cyberweek.jpg",
+      "event": "datafestEvent",
+      "link": "https://www.datafestafrica.com/"
+    },
+    {
+      "id": "cyberweek2020",
+      "name": "GE Cyber Week 2020",
+      "summary": "The 2020 edition of GE Global Cyber Week focused on digital transformation and cybersecurity in the African context. The virtual conference brought together experts from across the continent to discuss emerging cyber threats, digital innovation, and building resilient cyber infrastructure.",
+      "sponsor": "datafestSponsor",
+      "presentation": "src/assets/images/presentation/cyberweek/cyberweek.jpg",
+      "event": "cyberweekEvent2020",
+      "link": "https://www.datafestafrica.com/"
+    },
+    {
+      "id": "datafest2023",
+      "name": "Datafest Africa 2023",
+      "summary": "The 2023 edition of DataFest Africa showcased the latest developments in AI, machine learning, and data analytics across the continent. The conference highlighted African-led innovations and addressed challenges in implementing data-driven solutions in various sectors.",
+      "sponsor": "datafestSponsor",
+      "presentation": "datafest2023Presentation",
+      "event": "datafestEvent2023",
+      "link": "https://www.datafestafrica.com/"
+    },
+    {
+      "id": "cyberweek2021",
+      "name": "GE Cyber Week 2021",
+      "summary": "The 2021 GE Global Cyber Week emphasized the importance of cybersecurity in the post-pandemic era. The hybrid event featured discussions on remote work security, cloud computing, and the rising importance of cyber resilience in African organizations.",
+      "sponsor": "datafestSponsor",
+      "presentation": "cyberweek2021Presentation",
+      "event": "cyberweekEvent2021",
+      "link": "https://www.datafestafrica.com/"
+    },
+    {
+      "id": "datafest2021",
+      "name": "Datafest Africa 2021",
+      "summary": "DataFest Africa 2021 explored the role of data science in addressing pandemic-related challenges. The virtual conference showcased innovative solutions in healthcare analytics, remote education, and economic recovery through data-driven approaches.",
+      "sponsor": "datafestSponsor",
+      "presentation": "datafest2021Presentation",
+      "event": "datafestEvent2021",
+      "link": "https://www.datafestafrica.com/"
+    },
+    {
+      "id": "cyberweek2022",
+      "name": "GE Cyber Week 2022",
+      "summary": "The 2022 edition of GE Global Cyber Week focused on emerging technologies and their security implications. The conference addressed blockchain security, IoT vulnerabilities, and the growing importance of artificial intelligence in cybersecurity.",
+      "sponsor": "datafestSponsor",
+      "presentation": "cyberweek2022Presentation",
+      "event": "cyberweekEvent2022",
+      "link": "https://www.datafestafrica.com/"
+    },
+    {
+      "id": "datafest2020",
+      "name": "Datafest Africa 2020",
+      "summary": "The 2020 DataFest Africa adapted to the global pandemic by hosting its first fully virtual conference. The event focused on data science applications in crisis management, healthcare analytics, and digital transformation across African industries.",
+      "sponsor": "datafestSponsor",
+      "presentation": "datafest2020Presentation",
+      "event": "datafestEvent2020",
+      "link": "https://www.datafestafrica.com/"
+    },
+    {
+      "id": "cyberweek2023",
+      "name": "GE Cyber Week 2023",
+      "summary": "GE Global Cyber Week 2023 addressed the evolving landscape of cybersecurity threats and solutions in Africa. The conference highlighted the importance of building local cyber talent and strengthening regional cybersecurity cooperation.",
+      "sponsor": "datafestSponsor",
+      "presentation": "cyberweek2023Presentation",
+      "event": "cyberweekEvent2023",
+      "link": "https://www.datafestafrica.com/"
+    },
+    {
+      "id": "datafest2024",
+      "name": "Datafest Africa 2024",
+      "summary": "DataFest Africa 2024 focuses on the future of data science and AI in Africa. The conference explores emerging trends in quantum computing, ethical AI development, and sustainable data practices while fostering collaboration across the continent.",
+      "sponsor": "datafestSponsor",
+      "presentation": "datafest2024Presentation",
+      "event": "datafestEvent2024",
+      "link": "https://www.datafestafrica.com/"
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+/*  */
+.projects {
+  /* max-width: 960px; */
+  height: 375vh;
+  height: 100%;
+  margin: 0 auto;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.project--items_ {
+  /* display: flex;
+  flex-direction: column;
+  row-gap: 150px;
+  list-style-type: none;
+  position: relative;
+  height: 100%;
+  margin-bottom: 20rem; */
+  height: 100%;
+  list-style-type: none;
+  /* Optional for 3D effect */
+  perspective: 1200px; 
+  /* new */
+  /* min-height: 400px; */
+  /* margin-top: 200px; */
+  /* width: 80%; */
+  position: relative;
+  background-attachment: scroll;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.project--item_ {
+  /* z-index: 0; */
+  /* top: 0; */
+  /* left: 0; */
+  /* height: 100vh; */
+  /* height: 100%; */
+  width: 100%;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 2rem;
+  transform: translateY(0);
+  /* Initial position */
+  transition: transform 0.3s ease-in-out;
+  /* Smoother transitions */
+  background-color: var(--background-color-primary);
+  color: var(--text-color-primary);
+  /* box-shadow: 0 0 80px rgba(255, 255, 255, 0.3); */
+
+  /* new */
+  position: relative;
+  background-attachment: scroll;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-color: #f00; */
+  /* min-height: 400px; */
+  /* margin-top: 200px; */
+  /* width: 80%; */
+  margin-left: auto;
+  margin-right: auto;
+  position: sticky;
+  background-color: var(--background-color-primary);
+  top: 50px;
+  margin-top: 50px;
+}
+
+.project--summary {
+  text-align: justify;
+  /* margin: 1.5rem 0rem; */
+}
+
+.project--button {
+  background-color: var(button-background-color-primary);
+  color: var(--text-color-primary);
+  border: none;
+  border: 0.1rem solid var(--text-color-primary);
+  border-radius: 0.5rem;
+  text-align: center;
+  font-size: inherit;
+  /* width: 100%; */
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 1s ease-out;
+}
+
+.project--button:hover {
+  filter: drop-shadow(0 0 1.5rem var(--drop-shadow-primary));
+}
+
+.project--tags {
+  text-align: left;
+  /* margin: 1.5rem 0rem; */
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+/* .pagination--button {
+  width: 100px;
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+} */
+
+.pagination--button {
+  background-color: var(--button-background-color-primary);
+  color: var(--button-text-color-primary);
+  border: none;
+  border: 0.1rem solid var(--button-text-color-primary);
+  border-radius: 0.5rem;
+  text-align: center;
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  width: 100px;
+  cursor: pointer;
+  transition: all 1s ease-out;
+}
+
+.pagination--button:hover {
+  filter: drop-shadow(0 0 1.5rem var(--drop-shadow-primary));
+}
+
+.pagination--button:disabled {
+  cursor: not-allowed;
+}
+
+@media only screen and (min-width: 964px) {
+  .projects {
+    height: 275vh;
+    height: 100%;
+    padding: 1rem 1rem;
+    max-width: 960px;
+    margin: 0 auto;
+    padding-top: 5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .project--items {
+    margin-bottom: 15rem;
+  }
+
+}
