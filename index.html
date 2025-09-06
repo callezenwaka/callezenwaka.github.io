@@ -50,6 +50,25 @@
 
   <link rel="stylesheet" href="./app.css">
   
+  <!-- Prevent flash of light theme -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
+      // If no saved preference, use device preference
+      const shouldUseDark = savedTheme === "dark" || (savedTheme === null && prefersDark);
+      
+      if (shouldUseDark) {
+        const darkThemeLink = document.createElement("link");
+        darkThemeLink.rel = "stylesheet";
+        darkThemeLink.href = "./assets/dark.css";
+        darkThemeLink.id = "dark-theme-style";
+        document.head.appendChild(darkThemeLink);
+      }
+    })();
+  </script>
+  
   <!-- Structured Data -->
   <script type="application/ld+json">
   {

@@ -1,6 +1,7 @@
 class Theme {
   constructor() {
     this.loadTheme();
+    this.setupSystemThemeListener();
   }
 
   addDarkTheme() {
@@ -17,7 +18,7 @@ class Theme {
     const darkThemeLinkEl = document.querySelector("#dark-theme-style");
     const parentNode = darkThemeLinkEl?.parentNode;
     parentNode?.removeChild(darkThemeLinkEl);
-    localStorage.removeItem("theme");
+    localStorage.setItem("theme", "light");
   }
 
   darkThemeSwitch() {
@@ -30,10 +31,45 @@ class Theme {
   }
 
   loadTheme() {
-    const theme = localStorage.getItem("theme");
-    if (theme === "dark") {
-      this.addDarkTheme();
+    const savedTheme = localStorage.getItem("theme");
+    
+    // Check if dark theme is already applied (by inline script)
+    const darkThemeAlreadyApplied = document.querySelector("#dark-theme-style");
+    
+    // If user has a saved preference, use it
+    if (savedTheme === "dark") {
+      if (!darkThemeAlreadyApplied) {
+        this.addDarkTheme();
+      }
+    } else if (savedTheme === "light") {
+      // Explicitly set light theme (remove any dark theme)
+      this.removeDarkTheme();
+    } else {
+      // No saved preference - check device preference
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (prefersDark) {
+        if (!darkThemeAlreadyApplied) {
+          this.addDarkTheme();
+        }
+      } else {
+        this.removeDarkTheme();
+      }
     }
+  }
+
+  setupSystemThemeListener() {
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      // Only apply system theme if user hasn't made a manual choice
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === null) {
+        if (e.matches) {
+          this.addDarkTheme();
+        } else {
+          this.removeDarkTheme();
+        }
+      }
+    });
   }
 }
 
