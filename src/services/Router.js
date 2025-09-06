@@ -4,7 +4,6 @@ const Router = {
         document.querySelectorAll("a.nav-link").forEach(a => {
             a.addEventListener("click", event => {
                 event.preventDefault();
-                console.log(event.target);
                 const link_url = event.target.getAttribute("href");
                 Router.go(link_url);
             });
@@ -12,24 +11,44 @@ const Router = {
 
         // Event handler for url changes
         window.addEventListener('popstate', event => {
-            Router.go(event.state.route, false);
+            Router.go(event.state?.route || location.pathname, false);
         })
 
         // Check the initial link_url
-        Router.go(location.pathname);
+        // Handle GitHub Pages redirect with query parameter
+        let initialRoute = location.pathname;
+        
+        // Handle GitHub Pages 404 redirect
+        if (location.search) {
+            const queryMatch = location.search.match(/\?\/?(.*)/);
+            if (queryMatch && queryMatch[1]) {
+                initialRoute = '/' + queryMatch[1].replace(/~and~/g, '&');
+            }
+        }
+        
+        // Clean up the route
+        if (initialRoute === '/' || initialRoute === '') {
+            initialRoute = '/';
+        }
+        
+        Router.go(initialRoute);
     },
 
     go: (route, addToHistory=true) => {
-        console.log(`Going to ${route}`);
-
+        // Clean up route - remove hash if present
+        const cleanRoute = route.replace(/^#/, '');
+        
+        console.log('Router: Navigating to', cleanRoute);
+        
         if (addToHistory) {
-            history.pushState({ route }, '', route);
+            history.pushState({ route: cleanRoute }, '', cleanRoute);
         }
 
         let pageElement = null;
 
-        switch (route) {
+        switch (cleanRoute) {
             case "/":
+            case "":
                 pageElement = document.createElement("home-page");
                 break;
             case "/events":
@@ -40,17 +59,22 @@ const Router = {
                 break;
         
             default:
-                if(route.startsWith("/events-/*")) {
-                    pageElement = document.createElement("events-page");
-                    const paramsId = route.substring(route.lastIndexOf("-")+1);
+                if(cleanRoute.startsWith("/events/")) {
+                    pageElement = document.createElement("event-page");
+                    const paramsId = cleanRoute.split("/").pop();
                     pageElement.id = paramsId;
                 }
-                if(route.startsWith("/projects-/*")) {
-                    pageElement = document.createElement("projects-page");
-                    const paramsId = route.substring(route.lastIndexOf("-")+1);
+                if(cleanRoute.startsWith("/projects/")) {
+                    pageElement = document.createElement("project-page");
+                    const paramsId = cleanRoute.split("/").pop();
                     pageElement.id = paramsId;
                 }
-                // break;
+                if(cleanRoute.startsWith("/birthday/")) {
+                    pageElement = document.createElement("birthday-page");
+                    const friendName = cleanRoute.split("/birthday/")[1];
+                    pageElement.id = friendName;
+                }
+                break;
         }
 
         if (pageElement) {
@@ -60,7 +84,12 @@ const Router = {
             window.scrollX = 0;
             window.scrollY = 0;
         } else {
-            document.querySelector('main').innerHTML = '404, Not found!';
+            console.log('Router: No matching route for', cleanRoute);
+            // Fallback to home page for unknown routes
+            pageElement = document.createElement("home-page");
+            let cacheMain = document.querySelector("main");
+            cacheMain.innerHTML = ""
+            cacheMain.appendChild(pageElement);
         }
 
     }

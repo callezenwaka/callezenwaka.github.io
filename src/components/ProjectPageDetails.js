@@ -12,7 +12,7 @@ export class EventPageDetails extends HTMLElement {
         this.root.appendChild(styles);
 
         async function loadCSS() {
-            const request = await fetch("src/components/EventPageDetails.css");
+            const request = await fetch("/src/components/EventPageDetails.css");
             styles.textContent = await request.text();
             // styles.textContent = EventPageDetailsCSS;
         }

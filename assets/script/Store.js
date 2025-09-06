@@ -5,7 +5,7 @@ const Store = {
     interests: [
         {
             id: 'ai',
-            name: 'AI Governance'
+            name: 'Software Security'
         },
         {
             id: 'wb',
@@ -24,7 +24,7 @@ const Store = {
             name: 'Enterprise SaaS'
         },
     ],
-    _interests: ['AI Governance', 'Wearable Biosensors', 'Emerging Technologies', 'Data Privacy', 'Enterprise SaaS'],
+    _interests: ['Software Security', 'Wearable Biosensors', 'Emerging Technologies', 'Data Privacy', 'Enterprise SaaS'],
 }
 
 const proxiedStore = new Proxy(Store, {

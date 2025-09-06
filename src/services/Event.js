@@ -11,7 +11,6 @@ export async function getEventById(id) {
     }
 
     const events = app.store.events;
-    console.log(typeof events);
 
     for (const event of events) {
         if (event.id == id) {

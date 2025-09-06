@@ -6,7 +6,7 @@ class Theme {
   addDarkTheme() {
     const darkThemeLinkEl = document.createElement("link");
     darkThemeLinkEl.setAttribute("rel", "stylesheet");
-    darkThemeLinkEl.setAttribute("href", "/dark.css");
+    darkThemeLinkEl.setAttribute("href", "./assets/dark.css");
     darkThemeLinkEl.setAttribute("id", "dark-theme-style");
     const docHead = document.querySelector("head");
     docHead?.append(darkThemeLinkEl);

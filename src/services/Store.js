@@ -4,27 +4,39 @@ const Store = {
     events: [],
     interests: [
         {
+            id: 'cv',
+            name: 'Computer Vision'
+        },
+        {
             id: 'ai',
-            name: 'AI Governance'
+            name: 'AI Safety & Ethics'
         },
         {
-            id: 'wb',
-            name: 'Wearable Biosensors'
+            id: 'hc',
+            name: 'Healthcare Technology'
         },
         {
-            id: 'et',
-            name: 'Emerging Technologies'
+            id: 'sc',
+            name: 'Supply Chain Optimization'
         },
         {
-            id: 'dp',
-            name: 'Data Privacy'
+            id: 'pr',
+            name: 'Privacy-Preserving Technologies'
         },
         {
-            id: 'es',
-            name: 'Enterprise SaaS'
+            id: 'cs',
+            name: 'Cybersecurity'
         },
+        {
+            id: 'se',
+            name: 'Secure Computation'
+        },
+        {
+            id: 'ei',
+            name: 'Energy Infrastructure'
+        }
     ],
-    _interests: ['AI Governance', 'Wearable Biosensors', 'Emerging Technologies', 'Data Privacy', 'Enterprise SaaS'],
+    _interests: ['Computer Vision', 'AI Safety & Ethics', 'Healthcare Technology', 'Supply Chain Optimization', 'Privacy-Preserving Technologies', 'Cybersecurity', 'Secure Computation', 'Energy Infrastructure'],
 }
 
 const proxiedStore = new Proxy(Store, {

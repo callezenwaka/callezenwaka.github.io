@@ -8,7 +8,7 @@ export class EventPage extends HTMLElement {
         this.root.appendChild(styles);
 
         async function loadCSS() {
-            const request = await fetch("src/components/EventPage.css");
+            const request = await fetch("/src/components/EventPage.css");
             styles.textContent = await request.text();
             // styles.textContent = eventPageCSS;
         }
@@ -29,14 +29,11 @@ export class EventPage extends HTMLElement {
 
     render() {
         const events = app.store.events;
-        console.log(typeof events);
         if (Array.isArray(events)) {
             this.root.querySelector("#event").innerHTML = "";
-            console.log(events);
             const event_lists = document.createElement('ul');
             event_lists.classList.add('event--items');
             for (const event of events) {
-                // console.log(event);
                 const event_list = document.createElement('li');
                 event_list.classList.add('event--item');
                 event_list.dataset.event = JSON.stringify(event);

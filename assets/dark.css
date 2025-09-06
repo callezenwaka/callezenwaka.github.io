@@ -1,31 +1,72 @@
-/* :root {
-  --background-color: #1a1a1a;
-  --text-color: #f2f2f2;
-} */
+/* Dark Theme Variables */
 :root {
-  --background-color-primary: #222832;
-  --background-color-secondary: #14181e;
+  --background-surface: #1a1a1a;
+  --primaryColor: #2d2d2d;
+  --secondaryColor: #404040;
+  --color3: #555555;
+  --color4: #666666;
+  --color5: #777777;
+  --color6: #888888;
+  --highlight: #ffffff;
+  
+  --background-color-primary: #1a1a1a;
+  --background-color-secondary: #2d2d2d;
   --background-color-tertiary: #000000;
   --background-color-danger: #ff0000;
   --background-color-success: #008000;
   --drop-shadow-primary: #646cffaa;
-  --accent-color: #3f3f3f;
-  --text-color-primary: #f3f4f5;
+  --accent-color: #555555;
+  --text-color-primary: #ffffff;
   --input-background-color-primary: #3B3B3B;
-  --button-background-color-primary: #0F1216; /* #1d9bf0; #0040ff*/
-  /* background-color: #000000; */
+  --button-background-color-primary: #0F1216;
 }
 
+/* Dark theme overrides */
 html, body {
-  background-color: var(--background-color-secondary) !important;;
-  color: var(--text-color-primary) !important;;
+  background-color: var(--background-color-primary) !important;
+  color: var(--text-color-primary) !important;
 }
 
-.active {
+.header {
+  background-color: var(--primaryColor) !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+a.nav-link {
+  color: var(--highlight) !important;
+}
+
+a.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
+}
+
+.theme-toggle {
+  border-color: var(--highlight) !important;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border-color: white !important;
+}
+
+/* Main content styling */
+body>main {
+  background-color: var(--background-color-primary);
+  color: var(--text-color-primary);
+}
+
+/* Links in content */
+a {
+  color: #4a9eff;
+}
+
+a:hover {
+  color: #6bb6ff;
+}
+
+/* Footer */
+.footer {
+  color: var(--text-color-primary);
   background-color: var(--background-color-secondary);
-}
-
-.theme--svg {
-  width: 1rem;
-  fill: var(--text-color-primary);
 }

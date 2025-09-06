@@ -8,7 +8,7 @@ export class HomePage extends HTMLElement {
         this.root.appendChild(styles);
 
         async function loadCSS() {
-            const request = await fetch('src/components/HomePage.css');
+            const request = await fetch('/src/components/HomePage.css');
             styles.textContent = await request.text();
             // styles.textContent = homePageCSS;
         }

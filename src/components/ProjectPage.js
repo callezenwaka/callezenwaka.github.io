@@ -8,7 +8,7 @@ export class ProjectPage extends HTMLElement {
         this.root.appendChild(styles);
 
         async function loadCSS() {
-            const request = await fetch('src/components/ProjectPage.css');
+            const request = await fetch('/src/components/ProjectPage.css');
             styles.textContent = await request.text();
         }
 
@@ -29,23 +29,19 @@ export class ProjectPage extends HTMLElement {
 
     render() {
         const projects = app.store.projects;
-        console.log(typeof projects);
         if (Array.isArray(projects)) {
-            // this.root.querySelector("#project").innerHTML = "";
+            this.root.querySelector("#project").innerHTML = "";
             const project_lists = document.createElement('ul');
             project_lists.classList.add('project--items');
             for (const project of projects) {
-                console.log(project_lists);
-                console.log(project);
                 const project_list = document.createElement('li');
                 project_list.classList.add('project--item');
                 project_list.dataset.project = JSON.stringify(project);
-                    // <img class="project--avatar" src="${ project?.avatar }" alt="${ project.title }" type="image/*" title="${ project.title }"></img>
                 project_list.innerHTML = `
                     <div class="project--summary">
 					    <h2 class="project--title">${ project.title }</h2>
                         <p>${ project.summary }</p>
-                        <a href="${ project.link }" target="_blank">Event Website</a>
+                        <a href="${ project.link }" target="_blank">View Project</a>
                     </div>
                 `;
                 project_lists.appendChild(project_list);

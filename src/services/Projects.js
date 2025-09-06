@@ -11,7 +11,6 @@ export async function getProjectById(id) {
     }
 
     const projects = app.store.projects;
-    console.log(typeof projects);
 
     for (const project of projects) {
         if (project.id == id) {

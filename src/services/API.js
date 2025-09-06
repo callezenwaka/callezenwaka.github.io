@@ -1,8 +1,8 @@
 // src/services/API.js
 const API = {
     fetch: async (endpoint) => {
-        // const url = `${BASE_URL}${endpoint}.json`;
-        const url = `../../data/${endpoint}.json`;
+        // Use relative path for GitHub Pages
+        const url = `./data/${endpoint}.json`;
         const result = await fetch(url);
         return await result.json();
     },
