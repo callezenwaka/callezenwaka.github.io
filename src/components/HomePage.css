@@ -6,17 +6,11 @@
 }
 
 .heading {
-	/* margin: 1rem; */
-	display: flex;
-	gap: 5%;
-	align-content: center;
-	justify-content: space-between;
-	align-items: center;
-	flex-wrap: wrap;
+	display: block;
 }
 
 .name {
-	width: 75%;
+	/* width: 75%; */
 	font-family: monospace;
 	font-size: 1.75rem;
 }

@@ -318,7 +318,8 @@ body:has(#dark-theme-style) .moon-icon {
     }
     
     a.logo-link {
-        top: -15px;
+        position: relative;
+        top: 0;
     }
 }
 
@@ -333,7 +334,9 @@ body:has(#dark-theme-style) .moon-icon {
     }
     
     .header-content {
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
         gap: 0.5rem;
     }
     
@@ -352,7 +355,8 @@ body:has(#dark-theme-style) .moon-icon {
     }
     
     a.logo-link {
-        top: -10px;
+        position: relative;
+        top: 0;
     }
 }
 
