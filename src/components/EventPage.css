@@ -5,12 +5,14 @@
   padding-top: 1rem;
   padding-left: 1rem;
   padding-right: 1rem;
+  padding: 0;
 }
 .event--items {
   display: flex;
-    flex-direction: column;
-    row-gap: 100px;
-    list-style-type: none;
+  flex-direction: column;
+  row-gap: 100px;
+  list-style-type: none;
+  padding: 0;
 }
 .event--item {
   display: flex;
