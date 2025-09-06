@@ -38,7 +38,7 @@ const Router = {
         // Clean up route - remove hash if present
         const cleanRoute = route.replace(/^#/, '');
         
-        console.log('Router: Navigating to', cleanRoute);
+        // console.log('Router: Navigating to', cleanRoute);
         
         if (addToHistory) {
             history.pushState({ route: cleanRoute }, '', cleanRoute);

@@ -169,35 +169,23 @@
         <h3>Research and Academic Interests</h3>
         <p class="summary">
           My academic background in biomedical engineering has informed my approach to computational 
-          problem-solving, particularly in optimization and simulation. My master's thesis involved 
-          computational simulations for 3D-printed orthotic insoles, demonstrating my interest in 
-          applying technology to healthcare solutions.
+          problem-solving, particularly in optimization and simulation. My master's thesis, conducted 
+          in partnership with Steeper, a leading orthotic company, focused on using finite element 
+          modeling to analyze how different material combinations affect pressure distribution and 
+          friction coefficients in 3D-printed orthotic insoles. This work, which examined 22 material 
+          samples, directly influenced clinical prescribing practices and demonstrated the practical 
+          application of computational modeling in healthcare solutions.
         </p>
         
         <p class="summary">
-          I maintain a strong interest in computer vision applications for industrial monitoring, healthcare 
-          data security, educational technology innovation, supply chain optimization, privacy-preserving 
-          technologies, cryptographic systems, and secure computation. My research contributions include 
-          work on attribution-based control systems for AI data usage, which addresses copyright and 
-          privacy concerns in machine learning applications.
-        </p>
-        
-        <p class="summary">
-          I have also made meaningful contributions to widely-used developer resources. In the Node.js 
-          documentation repository, I created comprehensive documentation for the new Node.js v22 native 
-          WebSocket client, providing developers with clear guidance and code examples for implementing 
-          real-time communication features. Additionally, I contributed to Hugging Face's agents-course 
-          repository, where I improved function calling and vision agent tutorials by correcting technical 
-          inaccuracies and enhancing code examples, ensuring these AI development resources remain precise 
-          and reliable for developers learning to build AI agents.
-        </p>
-        
-        <p class="summary">
-          These contributions demonstrate my commitment to creating clear, accessible documentation for 
-          complex technical systems and my ability to identify and resolve issues that could impact 
-          developer experience. My focus on precision in technical communication and collaborative 
-          improvement of open-source resources reflects a broader approach to software development that 
-          prioritizes usability and accuracy in developer-facing tools and interfaces.
+          I maintain a strong interest in how computational modeling and AI can be applied to a variety 
+          of real-world challenges, from industrial monitoring and supply chain optimization to healthcare 
+          data security and predictive maintenance, with a particular focus on privacy-preserving 
+          technologies and cryptographic systems. This commitment extends to my open-source work, 
+          including contributions to the Node.js documentation repository, where I created comprehensive 
+          guides for the native WebSocket client. These contributions demonstrate my dedication to 
+          creating clear, accessible documentation and my ability to improve complex technical systems 
+          for the wider developer community.
         </p>
         
         <h3>Technical Expertise and Certifications</h3>
@@ -304,6 +292,35 @@
         <a href="/" class="back-link" onclick="app.router.go('/'); event.preventDefault()">
           Back to Home
         </a>
+      </div>
+    </div>
+  </template>
+
+  <template id="offline-page-template">
+    <div class="offline-container">
+      <div class="offline-content">
+        <div class="offline-icon">📡</div>
+        <h1 class="offline-title">You're Offline</h1>
+        <p class="offline-message">
+          It looks like you're not connected to the internet. Don't worry, you can still browse some content that was previously loaded.
+        </p>
+        <div class="offline-actions">
+          <button onclick="window.location.reload()" class="retry-button">
+            Try Again
+          </button>
+          <a href="/" class="home-link" onclick="app.router.go('/'); event.preventDefault()">
+            Go to Home
+          </a>
+        </div>
+        <div class="offline-tips">
+          <h3>While you're offline, you can:</h3>
+          <ul>
+            <li>View previously loaded pages</li>
+            <li>Read cached content</li>
+            <li>Use the theme toggle</li>
+            <li>Navigate between cached sections</li>
+          </ul>
+        </div>
       </div>
     </div>
   </template>

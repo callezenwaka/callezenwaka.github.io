@@ -43,11 +43,7 @@ html, body {
     width: 100%;
 }
 
-body>header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-}
+/* Header positioning is handled in .header class */
 
 .header {
     background-color: var(--primaryColor);
@@ -55,10 +51,27 @@ body>header {
     justify-content: center;
     align-items: center;
     padding: 0 1rem;
-    min-height: 60px;
+    min-height: 80px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     width: 100%;
     box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: height 300ms ease-in-out, 
+                box-shadow 300ms ease-in-out,
+                min-height 300ms ease-in-out;
+    will-change: height, box-shadow, min-height;
+}
+
+/* Scrolled state for header */
+.header.scrolled {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    min-height: 60px;
 }
 
 .header-content {
@@ -85,6 +98,17 @@ body>main {
     margin-top: 80px;
     max-width: 850px;
     padding: 0 1rem;
+    transition: margin-top 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Adjust main content margin when header is scrolled */
+.header.scrolled ~ main {
+    margin-top: 60px;
+}
+
+/* Fallback for browsers that support :has() */
+body:has(.header.scrolled) main {
+    margin-top: 60px;
 }
 
 h1 {
@@ -105,6 +129,8 @@ ul {
 a.logo-link {
     position: absolute;
     top: -20px;
+    transition: top 300ms ease-in-out;
+    will-change: top;
 }
 
 .logo {
@@ -113,13 +139,28 @@ a.logo-link {
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid var(--highlight);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 300ms ease-in-out,
+                border-color 300ms ease-in-out,
+                box-shadow 300ms ease-in-out;
     cursor: pointer;
     padding: 0;
+    will-change: transform;
+    transform-origin: center center;
+}
+
+/* Shrunk state for logo */
+.logo.shrunk {
+    transform: scale(0.6);
 }
 
 .logo:hover {
     transform: scale(1.15) rotate(5deg);
+    border-color: #ffffff;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.logo.shrunk:hover {
+    transform: scale(0.69) rotate(5deg); /* 0.6 * 1.15 = 0.69 */
     border-color: #ffffff;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
@@ -129,12 +170,12 @@ a.logo-link {
     transition: all 0.1s ease;
 }
 
-/* Apply scale transform based on scroll position */
-@media (min-height: 50px) {
-    .logo {
-        transform: scale(var(--scroll-factor, 1));
-    }
+.logo.shrunk:active {
+    transform: scale(0.63) rotate(2deg); /* 0.6 * 1.05 = 0.63 */
+    transition: all 0.1s ease;
 }
+
+/* Scroll-based logo scaling is now handled by JavaScript */
 
 a.nav-link {
     color: var(--highlight);
@@ -240,7 +281,11 @@ body:has(#dark-theme-style) .moon-icon {
 @media (max-width: 768px) {
     .header {
         padding: 0 0.75rem;
-        min-height: 55px;
+        min-height: 70px;
+    }
+    
+    .header.scrolled {
+        min-height: 50px;
     }
     
     .header-content {
@@ -266,12 +311,25 @@ body:has(#dark-theme-style) .moon-icon {
         width: 16px;
         height: 16px;
     }
+    
+    .logo {
+        width: 70px;
+        height: 70px;
+    }
+    
+    a.logo-link {
+        top: -15px;
+    }
 }
 
 @media (max-width: 480px) {
     .header {
         padding: 0.5rem 1rem;
-        min-height: auto;
+        min-height: 60px;
+    }
+    
+    .header.scrolled {
+        min-height: 45px;
     }
     
     .header-content {
@@ -286,5 +344,144 @@ body:has(#dark-theme-style) .moon-icon {
     a.nav-link {
         padding: 0.4rem 0.6rem;
         font-size: 0.85rem;
+    }
+    
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+    
+    a.logo-link {
+        top: -10px;
+    }
+}
+
+/* Offline Page Styles */
+.offline-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    padding: 2rem;
+}
+
+.offline-content {
+    text-align: center;
+    color: white;
+    max-width: 600px;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.offline-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: pulse 2s infinite;
+}
+
+.offline-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.offline-message {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.offline-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.retry-button {
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.retry-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.home-link {
+    display: inline-block;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.home-link:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.offline-tips {
+    text-align: left;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+.offline-tips h3 {
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.offline-tips ul {
+    list-style: none;
+    padding: 0;
+}
+
+.offline-tips li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.offline-tips li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
     }
 }
